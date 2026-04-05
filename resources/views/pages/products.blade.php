@@ -1,5 +1,317 @@
 @extends('layouts.react')
 
 @section('content')
-<nav class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md font-heading transition-all duration-300 border-b border-gray-100 dark:border-gray-800"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between h-20"><div class="flex items-center cursor-pointer group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-8 w-8 text-solarGreen mr-2 transition-transform duration-700 group-hover:rotate-180" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><span class="text-xl sm:text-2xl font-bold text-solarGreen font-heading tracking-tight whitespace-nowrap">U.P.R. Solar Green Energy™</span></div><div class="hidden lg:flex items-center space-x-6"><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/" data-discover="true">Home</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/about" data-discover="true">About</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/products" data-discover="true">Products</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/services" data-discover="true">Services</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/gallery" data-discover="true">Gallery</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/projects" data-discover="true">Projects</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/contact" data-discover="true">Contact</a><button class="p-2 rounded-full hover:bg-lightEco dark:hover:bg-gray-800 text-navyBlue dark:text-yellow-400 transition-all duration-300 hover:rotate-12 hover:scale-110" aria-label="Toggle Dark Mode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><a class="text-navyBlue dark:text-gray-300 hover:text-solarGreen dark:hover:text-solarGreen transition-transform hover:scale-110 active:scale-95 duration-200" href="/products" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart h-6 w-6" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></a><a class="bg-solarGreen text-white px-4 py-2 rounded-lg hover:bg-deepGreen transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 transform hover:scale-105 active:scale-95 whitespace-nowrap" href="#/login" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Portal</a></div><div class="flex items-center lg:hidden gap-4"><button class="p-2 rounded-full hover:bg-lightEco dark:hover:bg-gray-800 text-navyBlue dark:text-yellow-400 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="text-navyBlue dark:text-white hover:text-solarGreen focus:outline-none transition-colors duration-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></div><div class="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0"><div class="px-2 pt-2 pb-3 space-y-1 sm:px-3"><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/" data-discover="true">Home</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/about" data-discover="true">About</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/products" data-discover="true">Products</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/services" data-discover="true">Services</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/gallery" data-discover="true">Gallery</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/projects" data-discover="true">Projects</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/contact" data-discover="true">Contact</a><a class="block px-3 py-2 rounded-md text-base font-medium text-white bg-solarGreen hover:bg-deepGreen mt-2 transition-all duration-200 shadow-sm hover:shadow-md" href="#/login" data-discover="true">Partner/Employee/Admin Login</a></div></div></nav><main class="flex-grow"><div class="bg-gray-50 dark:bg-gray-900 min-h-screen py-12 transition-colors duration-300"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-12"><h1 class="text-4xl font-bold font-heading text-navyBlue dark:text-white mb-4">Our Solar Store</h1><p class="text-gray-600 dark:text-gray-300">Premium quality solar equipment approved for Indian conditions.</p></div><div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10"><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-solarGreen text-white shadow-md">All</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Solar Panels</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Inverters</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Batteries</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Water Heaters</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Lighting</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Agriculture</button><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700">Accessories</button></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Mono PERC Solar Panel 540W" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&amp;fit=crop&amp;w=800&amp;q=80"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Solar Panels</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Mono PERC Solar Panel 540W</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">High-efficiency half-cut cell technology ideal for Indian climate.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>22% Efficiency</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>25 Years Warranty</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹14,500</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Mono PERC Solar Panel 540W to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Solar Hybrid Inverter 5kVA" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://via.placeholder.com/400x300?text=Product+Image"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Inverters</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Solar Hybrid Inverter 5kVA</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">Smart hybrid inverter with pure sine wave output.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>IoT Enabled</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>98% Efficiency</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹45,000</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Solar Hybrid Inverter 5kVA to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Lithium Ferro Phosphate Battery" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&amp;fit=crop&amp;w=800&amp;q=80"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Batteries</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Lithium Ferro Phosphate Battery</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">Long-life storage solution for solar off-grid systems.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>5000+ Cycles</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>Fast Charging</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹22,000</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Lithium Ferro Phosphate Battery to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Solar Water Heater 200L" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://via.placeholder.com/400x300?text=Product+Image"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Water Heaters</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Solar Water Heater 200L</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">ETC technology for hot water even on cloudy days.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>Glass Lined Tank</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>5 Year Warranty</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹18,500</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Solar Water Heater 200L to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="All-in-One Solar Street Light" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://via.placeholder.com/400x300?text=Product+Image"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Lighting</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">All-in-One Solar Street Light</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">Automatic dusk-to-dawn LED street light with motion sensor.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>IP65 Waterproof</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>Motion Sensor</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹4,200</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add All-in-One Solar Street Light to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Solar Submersible Pump 2HP" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=800&amp;q=80"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Agriculture</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Solar Submersible Pump 2HP</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">High-power DC pump for irrigation without electricity grid.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>MPPT Drive</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>Dry Run Protection</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹1,25,000</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Solar Submersible Pump 2HP to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="MPPT Charge Controller 60A" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&amp;fit=crop&amp;w=800&amp;q=80"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Accessories</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">MPPT Charge Controller 60A</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">Optimizes solar energy harvest by up to 30% compared to PWM.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>99% Tracking Eff.</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>LCD Display</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹8,500</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add MPPT Charge Controller 60A to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div><div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full transform hover:-translate-y-2 hover:shadow-solarGreen/20"><div class="relative h-56 bg-gray-200 dark:bg-gray-700 overflow-hidden shrink-0"><img alt="Bifacial Solar Panel 550W" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&amp;fit=crop&amp;w=800&amp;q=80"><div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-bold text-navyBlue shadow-sm z-10">In Stock</div></div><div class="p-5 flex-1 flex flex-col"><span class="text-xs font-bold text-solarOrange uppercase tracking-wide mb-1">Solar Panels</span><h3 class="text-lg font-bold text-navyBlue dark:text-white mb-2 leading-tight group-hover:text-solarGreen transition-colors">Bifacial Solar Panel 550W</h3><p class="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">Generates power from both front and back sides for extra output.</p><ul class="mb-4 space-y-1 mt-auto"><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>Double Glass</li><li class="text-xs text-gray-500 dark:text-gray-400 flex items-center"><div class="w-1.5 h-1.5 bg-solarGreen rounded-full mr-2"></div>30 Years Life</li></ul><div class="pt-4 border-t border-gray-100 dark:border-gray-700 flex items-center justify-between mt-auto"><span class="text-xl font-bold text-solarGreen">₹16,000</span><button class="bg-navyBlue text-white p-2 rounded-lg hover:bg-deepGreen transition-all duration-200 transform hover:scale-110 active:scale-95 shadow-md hover:shadow-lg" aria-label="Add Bifacial Solar Panel 550W to cart"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></button></div></div></div></div><div class="mt-16 bg-gradient-to-r from-solarGreen to-deepGreen rounded-2xl p-8 text-center text-white shadow-lg relative overflow-hidden group"><div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 transition-transform duration-700 group-hover:scale-110"></div><h3 class="text-2xl font-bold font-heading mb-4 relative z-10">Bulk Order or Custom System?</h3><p class="mb-6 opacity-90 relative z-10">Use our advanced quotation generator to get a precise estimate for your project size.</p><a href="/contact" class="inline-block bg-white text-deepGreen font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 relative z-10 active:scale-95">Get Custom Quote</a></div></div></div></main><footer class="bg-navyBlue dark:bg-gray-950 text-white pt-12 pb-6 border-t-4 border-solarGreen transition-colors duration-300"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8"><div class="col-span-1 md:col-span-1"><h3 class="text-xl font-bold font-heading mb-4 text-solarGreen">U.P.R. Solar Green Energy™</h3><p class="text-gray-300 text-sm mb-4">MNRE &amp; ISO Certified Solar Company. Powering India with clean, renewable energy solutions since 2013.</p><div class="flex space-x-4"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a></div></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Quick Links</h4><ul class="space-y-2 text-sm text-gray-300"><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/" data-discover="true">Home</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/about" data-discover="true">About Us</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/gallery" data-discover="true">Gallery</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/products" data-discover="true">Shop Products</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/projects" data-discover="true">Projects</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="#/certifications" data-discover="true">Certifications</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="#/login" data-discover="true">Partner Portal</a></li></ul></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Our Services</h4><ul class="space-y-2 text-sm text-gray-300"><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Rooftop Solar</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Commercial Plants</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Solar Water Heaters</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">AMC &amp; Maintenance</a></li></ul></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Contact Us</h4><ul class="space-y-3 text-sm text-gray-300"><li class="flex items-start group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 mt-1 text-solarGreen shrink-0 group-hover:animate-bounce" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span class="group-hover:text-white transition-colors duration-200">Near IIT Metro Station, Kanpur, Uttar Pradesh, India</span></li><li class="flex items-center group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-2 text-solarGreen shrink-0 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg><span class="group-hover:text-white transition-colors duration-200">+91-9412452844</span></li><li class="flex items-center group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2 text-solarGreen shrink-0 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg><span class="group-hover:text-white transition-colors duration-200">info@uprsolargreenenergy.com</span></li></ul></div></div><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4"><p>© 2026 U.P.R. Solar Green Energy™ (U.P. Refrigeration &amp; Sales Co.). All Rights Reserved.</p><div class="flex gap-4"><a class="hover:text-white" href="#/privacy" data-discover="true">Privacy Policy</a><a class="hover:text-white" href="#/terms" data-discover="true">Terms of Service</a><a class="hover:text-white" href="#/help" data-discover="true">Help Center</a></div></div></footer>
+<nav class="sticky top-0 z-[100] transition-all duration-300 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/70 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]">
+        <div class="flex items-center gap-3">
+            <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </div>
+            <span class="text-xl font-black tracking-tighter uppercase text-deepForest">U.P.R. <span class="text-solarGreen">Solar</span></span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8">
+            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
+                <a href="{{ $link }}" class="text-[10px] font-black uppercase tracking-[0.2em] {{ Request::is(trim($link, '/')) || (Request::is('products') && $label == 'Products') ? 'text-solarGreen' : 'text-deepForest/60' }} hover:text-solarGreen transition-colors">{{ $label }}</a>
+            @endforeach
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="/products" class="p-2 text-deepForest/40 hover:text-deepForest transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </a>
+            <button class="px-6 py-2 bg-solarGreen text-deepForest font-black rounded-lg text-[10px] uppercase tracking-widest shadow-lg hover:scale-105 transition-transform">Portal</button>
+        </div>
+    </div>
+</nav>
+
+<main class="bg-auroraWhite relative">
+    <!-- SVG Noise Texture Filter -->
+    <svg class="absolute inset-0 w-full h-full opacity-[0.02] pointer-events-none -z-10">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+    <!-- Product Hero -->
+    <section class="relative py-24 md:py-32 overflow-hidden">
+        <!-- Radial Glow Background -->
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-solarGreen/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="text-left reveal-left space-y-10">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full border border-solarGreen/10">
+                    <span class="text-[10px] uppercase font-black tracking-[0.3em] text-solarGreen">Precision Hardware</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl font-black font-heading leading-[0.85] tracking-tighter text-deepForest uppercase drop-shadow-sm">
+                    SOLAR <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-solarGreen to-emerald-400 drop-shadow-[0_0_25px_rgba(0,223,130,0.4)] italic">STORE.</span>
+                </h1>
+                
+                <p class="text-lg text-deepForest/60 max-w-xl leading-relaxed font-medium border-l-4 border-solarGreen/20 pl-6">
+                    Tier-1 engineering components approved for high-efficiency grid participation. <br/> Premium grade panels, inverters, and storage solutions.
+                </p>
+            </div>
+
+            <!-- Floating Asset -->
+            <div class="relative hidden lg:block reveal-right">
+                <div class="relative z-10 group cursor-default">
+                    <img src="/assets/images/products/hero-panel.png" 
+                         class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] group-hover:scale-105 transition-transform duration-1000 animate-float" 
+                         alt="Premium Solar Asset">
+                    
+                    <!-- Decorative technical labels -->
+                    <div class="absolute -top-4 -right-4 p-4 bg-white/80 backdrop-blur-xl border border-white/40 rounded-2xl shadow-xl animate-float-slow">
+                        <div class="text-[9px] font-black uppercase text-solarGreen tracking-widest">Efficiency</div>
+                        <div class="text-xl font-bold text-deepForest tracking-tighter">23.8%</div>
+                    </div>
+                </div>
+                <!-- Back Glow -->
+                <div class="absolute inset-0 bg-solarGreen/20 blur-[120px] rounded-full -z-10 scale-75 animate-pulse-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(0.7); }
+            50% { opacity: 0.8; transform: scale(0.9); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulse-glow 5s ease-in-out infinite; }
+    </style>
+
+    <!-- Interactive Category Filter -->
+    <section class="pb-20">
+        <div class="max-w-7xl mx-auto px-6 overflow-x-auto">
+            <div class="flex justify-center gap-4 min-w-max pb-4" id="category-filter-bar">
+                <button onclick="filterProducts('All')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-solarGreen text-deepForest shadow-lg" data-category="All">All</button>
+                <button onclick="filterProducts('Solar Panels')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Solar Panels">Solar Panels</button>
+                <button onclick="filterProducts('Inverters')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Inverters">Inverters</button>
+                <button onclick="filterProducts('Batteries')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Batteries">Batteries</button>
+                <button onclick="filterProducts('Water Heaters')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Water Heaters">Water Heaters</button>
+                <button onclick="filterProducts('Lighting')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Lighting">Lighting</button>
+                <button onclick="filterProducts('Agriculture')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Agriculture">Agriculture</button>
+                <button onclick="filterProducts('Accessories')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Accessories">Accessories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standardized Product Grid -->
+    <section class="pb-32">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
+            @php
+                $products = [
+                    [
+                        "name" => "Mono PERC Solar Panel 540W",
+                        "description" => "High-efficiency half-cut for Indian climate.",
+                        "image_url" => "/assets/images/products/mono-panel.png",
+                        "category" => "Solar Panels",
+                        "price" => "₹14,500",
+                        "stat" => "22% Eff."
+                    ],
+                    [
+                        "name" => "Bifacial Solar Panel 550W",
+                        "description" => "Dual-side power generation for max yield.",
+                        "image_url" => "/assets/images/products/bifacial-panel.png",
+                        "category" => "Solar Panels",
+                        "price" => "₹16,000",
+                        "stat" => "Double Glass"
+                    ],
+                    [
+                        "name" => "Solar Hybrid Inverter 5kVA",
+                        "description" => "IoT Enabled pure sine wave system.",
+                        "image_url" => "/assets/images/products/hybrid-inverter.png",
+                        "category" => "Inverters",
+                        "price" => "₹45,000",
+                        "stat" => "98% Eff."
+                    ],
+                    [
+                        "name" => "LFP Battery Unit",
+                        "description" => "Long-life storage for solar systems.",
+                        "image_url" => "/assets/images/products/lithium-battery.png",
+                        "category" => "Batteries",
+                        "price" => "₹32,000",
+                        "stat" => "5000+ Cycles"
+                    ],
+                    [
+                        "name" => "Solar Water Heater 200L",
+                        "description" => "High-performance vacuum ETC tech.",
+                        "image_url" => "/assets/images/products/water-heater.png",
+                        "category" => "Water Heaters",
+                        "price" => "₹18,500",
+                        "stat" => "Glass Lined"
+                    ],
+                    [
+                        "name" => "Solar Street Light",
+                        "description" => "Automatic dusk-to-dawn LED sensor.",
+                        "image_url" => "/assets/images/products/street-light.png",
+                        "category" => "Lighting",
+                        "price" => "₹5,500",
+                        "stat" => "IP65 Proof"
+                    ],
+                    [
+                        "name" => "Solar Submersible Pump",
+                        "description" => "High-power DC irrigation pump.",
+                        "image_url" => "/assets/images/products/submersible-pump.png",
+                        "category" => "Agriculture",
+                        "price" => "₹55,000",
+                        "stat" => "MPPT Drive"
+                    ],
+                    [
+                        "name" => "Charge Controller 60A",
+                        "description" => "Optimized energy harvest system.",
+                        "image_url" => "/assets/images/products/charge-controller.png",
+                        "category" => "Accessories",
+                        "price" => "₹6,000",
+                        "stat" => "LCD Display"
+                    ],
+                ];
+            @endphp
+
+            @foreach($products as $p)
+                <div class="product-card group bg-white rounded-[2.5rem] border border-deepForest/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-solarGreen/20 flex flex-col" data-category="{{ $p['category'] }}">
+                    <div class="aspect-video relative overflow-hidden bg-auroraWhite">
+                        <img src="{{ $p['image_url'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="{{ $p['name'] }}">
+                        <div class="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg text-[8px] font-black uppercase tracking-widest text-deepForest">In Stock</div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                        <div class="flex justify-between items-start">
+                            <span class="text-[9px] font-black text-solarGreen uppercase tracking-[0.3em]">{{ $p['category'] }}</span>
+                            <span class="text-[9px] font-black text-deepForest/20 uppercase tracking-widest">{{ $p['stat'] }}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-deepForest tracking-tight leading-tight uppercase">{{ $p['name'] }}</h3>
+                        <p class="text-[10px] text-deepForest/40 font-medium uppercase tracking-widest">{{ $p['description'] }}</p>
+                        
+                        <div class="pt-8 mt-auto flex items-center justify-between border-t border-deepForest/5">
+                            <div class="text-2xl font-black text-deepForest tracking-tighter">{{ $p['price'] }}</div>
+                            <button class="w-12 h-12 bg-auroraWhite border border-deepForest/5 rounded-2xl flex items-center justify-center hover:bg-solarGreen hover:border-solarGreen transition-all group/btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-deepForest group-hover/btn:scale-110 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <!-- Bulk Order CTA -->
+    <section class="pb-32 px-6">
+        <div class="max-w-7xl mx-auto relative rounded-[4rem] p-16 md:p-24 text-center overflow-hidden group border border-white/5 bg-[#0B0F0E] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,223,130,0.15),transparent_60%)]"></div>
+            
+            <div class="relative z-10 max-w-2xl mx-auto space-y-10">
+                <h3 class="text-4xl md:text-5xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic">
+                    Bulk Order or <br/>
+                    <span class="text-solarGreen">Custom System?</span>
+                </h3>
+                <p class="text-lg text-white/50 font-medium leading-relaxed max-w-2xl mx-auto">
+                    Access engineering-grade architectural estimates tailored for industrial-scale deployment or residential customization.
+                </p>
+                <div class="pt-10">
+                    <a href="/contact" class="inline-flex items-center gap-4 bg-solarGreen text-deepForest px-12 py-6 rounded-[2rem] font-black uppercase tracking-widest text-[11px] shadow-[0_10px_50px_rgba(0,223,130,0.4)] hover:shadow-[0_20px_70px_rgba(0,223,130,0.6)] hover:scale-105 active:scale-95 transition-all duration-500 group/btn">
+                        Get Custom Quote 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/btn:translate-x-1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="absolute top-12 left-12 w-32 h-32 border-l border-t border-white/10 opacity-20"></div>
+            <div class="absolute bottom-12 right-12 w-32 h-32 border-r border-b border-white/10 opacity-20"></div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-deepForest py-32 relative overflow-hidden text-white border-t border-white/5">
+    <!-- Footer content remains the same for consistency -->
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-20">
+        <div class="lg:col-span-1 space-y-10">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </div>
+                <span class="text-xl font-black tracking-tighter uppercase text-white">U.P.R. <span class="text-solarGreen">Solar</span></span>
+            </div>
+            <p class="text-base font-bold text-white/40 leading-relaxed">MNRE & ISO Certified Solar Infrastructure. <br/> Engineering India's Future since 2013.</p>
+        </div>
+        <div>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Headquarters</h4>
+            <p class="text-base font-bold text-white/70 leading-relaxed">Near IIT Metro Station, Kanpur - 208016</p>
+        </div>
+        <div>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Communications</h4>
+            <ul class="space-y-6 text-base font-bold text-white/70">
+                <li><a href="tel:+919412452844" class="hover:text-solarGreen transition-colors flex items-center gap-3">+91-9412452844</a></li>
+                <li><a href="mailto:info@uprsolar.com" class="hover:text-solarGreen transition-colors flex items-center gap-3">info@uprsolar.com</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Status</h4>
+            <div class="p-6 bg-white/5 rounded-3xl border border-white/5">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="w-2 h-2 bg-solarGreen rounded-full animate-pulse-glow"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white">GRID ACTIVE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-32 pt-12 border-t border-white/5 text-[10px] font-black text-white/20 uppercase tracking-[0.5em] text-center">
+        © 2026 U.P.R. Solar Green Energy™
+    </div>
+</footer>
+
+<script>
+    function filterProducts(category) {
+        const cards = document.querySelectorAll('.product-card');
+        const buttons = document.querySelectorAll('.category-btn');
+
+        // Update Button States
+        buttons.forEach(btn => {
+            if (btn.getAttribute('data-category') === category) {
+                btn.classList.remove('bg-white', 'text-deepForest/40', 'border', 'border-deepForest/5');
+                btn.classList.add('bg-solarGreen', 'text-deepForest', 'shadow-lg');
+            } else {
+                btn.classList.add('bg-white', 'text-deepForest/40', 'border', 'border-deepForest/5');
+                btn.classList.remove('bg-solarGreen', 'text-deepForest', 'shadow-lg');
+            }
+        });
+
+        // Filter Cards
+        cards.forEach(card => {
+            card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            if (category === 'All' || card.getAttribute('data-category') === category) {
+                card.style.display = 'flex';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0) scale(1)';
+                }, 10);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px) scale(0.95)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 500);
+            }
+        });
+    }
+
+    // Initialize display states
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.product-card');
+        cards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        });
+    });
+</script>
 @endsection

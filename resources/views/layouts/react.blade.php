@@ -18,15 +18,19 @@
             theme: {
                 extend: {
                     colors: {
-                        solarGreen: '#00DF82', // Solar Emerald (Refined visibility)
+                        solarGreen: '#00DF82', // Solar Emerald
                         solarGreenDark: '#00B368',
                         navyBlue: '#0A2540',
                         obsidian: '#0e0e0e', // The Dark Base
                         obsidianLight: '#131313', // Surface Low
                         obsidianHigh: '#262626', // Surface High
                         solarOrange: '#F97316',
+                        auroraWhite: '#F8FAFC',
+                        auroraGray: '#E2E8F0',
+                        deepForest: '#0B0F0E',
                         glassWhite: 'rgba(255,255,255,0.05)',
                         glassBorder: 'rgba(255,255,255,0.1)',
+                        glassLight: 'rgba(255,255,255,0.7)',
                     },
                     fontFamily: {
                         sans: ['Manrope', 'Inter', 'sans-serif'],

@@ -1,5 +1,296 @@
 @extends('layouts.react')
 
 @section('content')
-<nav class="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md font-heading transition-all duration-300 border-b border-gray-100 dark:border-gray-800"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between h-20"><div class="flex items-center cursor-pointer group"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-8 w-8 text-solarGreen mr-2 transition-transform duration-700 group-hover:rotate-180" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg><span class="text-xl sm:text-2xl font-bold text-solarGreen font-heading tracking-tight whitespace-nowrap">U.P.R. Solar Green Energy™</span></div><div class="hidden lg:flex items-center space-x-6"><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/" data-discover="true">Home</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/about" data-discover="true">About</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/products" data-discover="true">Products</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/services" data-discover="true">Services</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/gallery" data-discover="true">Gallery</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/projects" data-discover="true">Projects</a><a class="text-navyBlue dark:text-gray-300 dark:hover:text-solarGreen hover:text-solarGreen font-medium transition-colors duration-200 hover-underline-animation text-sm xl:text-base" href="/contact" data-discover="true">Contact</a><button class="p-2 rounded-full hover:bg-lightEco dark:hover:bg-gray-800 text-navyBlue dark:text-yellow-400 transition-all duration-300 hover:rotate-12 hover:scale-110" aria-label="Toggle Dark Mode"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><a class="text-navyBlue dark:text-gray-300 hover:text-solarGreen dark:hover:text-solarGreen transition-transform hover:scale-110 active:scale-95 duration-200" href="/products" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart h-6 w-6" aria-hidden="true"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg></a><a class="bg-solarGreen text-white px-4 py-2 rounded-lg hover:bg-deepGreen transition-all duration-300 shadow-sm hover:shadow-md flex items-center gap-2 transform hover:scale-105 active:scale-95 whitespace-nowrap" href="#/login" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Portal</a></div><div class="flex items-center lg:hidden gap-4"><button class="p-2 rounded-full hover:bg-lightEco dark:hover:bg-gray-800 text-navyBlue dark:text-yellow-400 transition-all duration-300"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button class="text-navyBlue dark:text-white hover:text-solarGreen focus:outline-none transition-colors duration-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></div><div class="lg:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0"><div class="px-2 pt-2 pb-3 space-y-1 sm:px-3"><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/" data-discover="true">Home</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/about" data-discover="true">About</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/products" data-discover="true">Products</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/services" data-discover="true">Services</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/gallery" data-discover="true">Gallery</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/projects" data-discover="true">Projects</a><a class="block px-3 py-2 rounded-md text-base font-medium text-navyBlue dark:text-gray-200 hover:text-solarGreen hover:bg-lightEco dark:hover:bg-gray-800 transition-all duration-200 hover:pl-4" href="/contact" data-discover="true">Contact</a><a class="block px-3 py-2 rounded-md text-base font-medium text-white bg-solarGreen hover:bg-deepGreen mt-2 transition-all duration-200 shadow-sm hover:shadow-md" href="#/login" data-discover="true">Partner/Employee/Admin Login</a></div></div></nav><main class="flex-grow"><div class="pt-8 pb-16 bg-white dark:bg-gray-900 transition-colors duration-300"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="text-center mb-16"><h1 class="text-4xl font-bold text-navyBlue dark:text-white font-heading mb-4">About U.P.R. Solar Green Energy™</h1><p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">India's premier solar energy provider, dedicated to sustainable development through clean technology.</p></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16"><div class="overflow-hidden rounded-2xl shadow-xl"><img alt="Team at work" class="w-full h-auto transition-transform duration-700 hover:scale-105" src="https://picsum.photos/id/1019/800/600"></div><div><h2 class="text-2xl font-bold text-navyBlue dark:text-white font-heading mb-6">Who We Are</h2><p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">U.P.R. Solar Green Energy™ (U.P. Refrigeration &amp; Sales Co.) is a leading MNRE-certified and ISO-approved solar solutions provider based in Kanpur. With over 10 years of experience, we specialize in residential and commercial solar systems, water heaters, and advanced battery storage solutions.</p><p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">Our mission is to empower Indian households and businesses to generate their own power, reduce electricity bills, and contribute to a greener planet. We are fully licensed by UP-NEDA and have served over 5000+ satisfied customers across Uttar Pradesh.</p><div class="grid grid-cols-2 gap-4 mt-8"><div class="bg-lightEco dark:bg-gray-800 p-4 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1"><h4 class="font-bold text-solarGreen text-3xl mb-1">10+</h4><p class="text-sm font-medium text-navyBlue dark:text-gray-300">Years Experience</p></div><div class="bg-lightEco dark:bg-gray-800 p-4 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1"><h4 class="font-bold text-solarGreen text-3xl mb-1">5k+</h4><p class="text-sm font-medium text-navyBlue dark:text-gray-300">Happy Customers</p></div><div class="bg-lightEco dark:bg-gray-800 p-4 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1"><h4 class="font-bold text-solarGreen text-3xl mb-1">ISO</h4><p class="text-sm font-medium text-navyBlue dark:text-gray-300">Certified Quality</p></div><div class="bg-lightEco dark:bg-gray-800 p-4 rounded-lg hover:shadow-md transition-all duration-300 hover:-translate-y-1"><h4 class="font-bold text-solarGreen text-3xl mb-1">100%</h4><p class="text-sm font-medium text-navyBlue dark:text-gray-300">Satisfaction</p></div></div></div></div><div class="bg-navyBlue text-white rounded-3xl p-8 md:p-12 mb-16"><div class="text-center mb-10"><h2 class="text-3xl font-bold font-heading mb-2 text-white">Our Certifications &amp; Approvals</h2><p class="text-gray-300">Recognized by the highest authorities in energy and quality.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center"><div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"><div class="transition-transform duration-300 hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award h-12 w-12 text-solarOrange mx-auto mb-4" aria-hidden="true"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg></div><h3 class="font-bold text-lg mb-2">MNRE Certified</h3><p class="text-sm text-gray-300">Approved by Ministry of New and Renewable Energy</p></div><div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"><div class="transition-transform duration-300 hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-check-big h-12 w-12 text-solarOrange mx-auto mb-4" aria-hidden="true"><path d="M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344"></path><path d="m9 11 3 3L22 4"></path></svg></div><h3 class="font-bold text-lg mb-2">ISO 9001:2015</h3><p class="text-sm text-gray-300">Certified for Quality Management Systems</p></div><div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"><div class="transition-transform duration-300 hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin h-12 w-12 text-solarOrange mx-auto mb-4" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3 class="font-bold text-lg mb-2">UP-NEDA Licensed</h3><p class="text-sm text-gray-300">Authorized Agency in Uttar Pradesh</p></div><div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"><div class="transition-transform duration-300 hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-12 w-12 text-solarOrange mx-auto mb-4" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></div><h3 class="font-bold text-lg mb-2">Channel Partner</h3><p class="text-sm text-gray-300">Authorized Solar Integrator for Top Brands</p></div></div></div></div></div></main><footer class="bg-navyBlue dark:bg-gray-950 text-white pt-12 pb-6 border-t-4 border-solarGreen transition-colors duration-300"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8"><div class="col-span-1 md:col-span-1"><h3 class="text-xl font-bold font-heading mb-4 text-solarGreen">U.P.R. Solar Green Energy™</h3><p class="text-gray-300 text-sm mb-4">MNRE &amp; ISO Certified Solar Company. Powering India with clean, renewable energy solutions since 2013.</p><div class="flex space-x-4"><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-solarGreen transition-all duration-300 hover:scale-110 transform"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a></div></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Quick Links</h4><ul class="space-y-2 text-sm text-gray-300"><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/" data-discover="true">Home</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/about" data-discover="true">About Us</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/gallery" data-discover="true">Gallery</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/products" data-discover="true">Shop Products</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/projects" data-discover="true">Projects</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="#/certifications" data-discover="true">Certifications</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="#/login" data-discover="true">Partner Portal</a></li></ul></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Our Services</h4><ul class="space-y-2 text-sm text-gray-300"><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Rooftop Solar</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Commercial Plants</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">Solar Water Heaters</a></li><li><a class="hover:text-solarGreen transition-colors duration-200 hover:pl-1" href="/services" data-discover="true">AMC &amp; Maintenance</a></li></ul></div><div><h4 class="text-lg font-semibold font-heading mb-4 text-white">Contact Us</h4><ul class="space-y-3 text-sm text-gray-300"><li class="flex items-start group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 mt-1 text-solarGreen shrink-0 group-hover:animate-bounce" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span class="group-hover:text-white transition-colors duration-200">Near IIT Metro Station, Kanpur, Uttar Pradesh, India</span></li><li class="flex items-center group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-2 text-solarGreen shrink-0 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg><span class="group-hover:text-white transition-colors duration-200">+91-9412452844</span></li><li class="flex items-center group"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2 text-solarGreen shrink-0 group-hover:scale-110 transition-transform duration-300" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg><span class="group-hover:text-white transition-colors duration-200">info@uprsolargreenenergy.com</span></li></ul></div></div><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4"><p>© 2026 U.P.R. Solar Green Energy™ (U.P. Refrigeration &amp; Sales Co.). All Rights Reserved.</p><div class="flex gap-4"><a class="hover:text-white" href="#/privacy" data-discover="true">Privacy Policy</a><a class="hover:text-white" href="#/terms" data-discover="true">Terms of Service</a><a class="hover:text-white" href="#/help" data-discover="true">Help Center</a></div></div></footer>
+<nav class="sticky top-0 z-[100] transition-all duration-300 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/70 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]">
+        <div class="flex items-center gap-3">
+            <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </div>
+            <span class="text-xl font-black tracking-tighter uppercase text-deepForest">U.P.R. <span class="text-solarGreen">Solar</span></span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8">
+            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
+                <a href="{{ $link }}" class="text-[10px] font-black uppercase tracking-[0.2em] {{ Request::is(trim($link, '/')) ? 'text-solarGreen' : 'text-deepForest/60' }} hover:text-solarGreen transition-colors">{{ $label }}</a>
+            @endforeach
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="/products" class="p-2 text-deepForest/40 hover:text-deepForest transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            </a>
+            <button class="px-6 py-2 bg-solarGreen text-deepForest font-black rounded-lg text-[10px] uppercase tracking-widest shadow-lg hover:scale-105 transition-transform">Portal</button>
+        </div>
+    </div>
+</nav>
+
+<main class="bg-auroraWhite">
+    <!-- About Hero: Defining the Legacy -->
+    <section class="relative py-32 overflow-hidden">
+        <!-- Dynamic Solar Grid Background -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none select-none -z-10">
+            <div class="absolute inset-0 bg-[radial-gradient(#0B0F0E_1.5px,transparent_1.5px)] [background-size:40px_40px]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-12 reveal-up">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full">
+                    <span class="text-[10px] uppercase font-black tracking-[0.3em] text-solarGreen">ESTABLISHED 2013</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl font-black font-heading leading-[0.85] tracking-tighter text-deepForest uppercase">
+                    ENGINEERING <br/> 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-solarGreen to-emerald-600 italic">DOMINANCE</span> <br/>
+                    IN RENEWABLES.
+                </h1>
+                
+                <p class="text-lg text-deepForest/60 max-w-lg leading-relaxed font-medium">
+                    U.P.R. Solar Green Energy™ has pioneered sustainable engineering across Uttar Pradesh for over a decade. We don't just install panels; we architect energy independence.
+                </p>
+
+                <!-- Premium Stats Bento Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-8 bg-white rounded-[2rem] border border-deepForest/5 shadow-[0_10px_40px_rgba(0,0,0,0.02)] group hover:border-solarGreen/20 transition-all">
+                        <div class="text-3xl font-bold text-deepForest mb-1">10Y+</div>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-solarGreen">Pure Legacy</div>
+                    </div>
+                    <div class="p-8 bg-white rounded-[2rem] border border-deepForest/5 shadow-[0_10px_40px_rgba(0,0,0,0.02)] group hover:border-solarGreen/20 transition-all">
+                        <div class="text-3xl font-bold text-deepForest mb-1">5000+</div>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-solarGreen">Roofs Powered</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <div class="aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl relative border-8 border-white">
+                    <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Solar Engineering">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepForest/40 to-transparent"></div>
+                    
+                    <div class="absolute bottom-8 left-8 right-8 p-10 bg-white/95 backdrop-blur-xl rounded-[3rem] border border-white/20 shadow-2xl">
+                        <div class="text-[11px] font-black uppercase tracking-widest text-solarGreen mb-4">Our Mission</div>
+                        <p class="text-lg font-bold text-deepForest leading-snug tracking-tight">"To democratize clean energy by providing industrial-grade engineering to every household in India."</p>
+                    </div>
+                </div>
+                
+                <!-- Geometric Accents -->
+                <div class="absolute -top-12 -right-12 w-64 h-64 bg-solarGreen/10 blur-3xl rounded-full"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Founder's Vision: The Human Core -->
+    <section class="py-32 bg-deepForest relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,223,130,0.05),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center relative z-10">
+            <div class="space-y-12 reveal-left">
+                <div class="flex items-center gap-4">
+                    <span class="w-12 h-[1px] bg-solarGreen"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen">DIRECTIVE FROM LEADERSHIP</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-6xl font-bold font-heading text-white tracking-tighter leading-[1.1] uppercase italic">
+                    WE ARE NOT JUST <br/>
+                    <span class="text-solarGreen">INSTALLING PANELS.</span> <br/>
+                    WE ARE BUILDING <br/>
+                    ENERGY FREEDOM.
+                </h2>
+                
+                <div class="space-y-8">
+                    <p class="text-lg text-white/50 leading-relaxed font-medium italic border-l-4 border-solarGreen/20 pl-8">
+                        "In 2013, I saw a landscape where high-tech engineering was reserved for the few. U.P.R. Solar was born from a singular mission: to bring industrial-grade energy solutions to every rooftop in Uttar Pradesh, with zero compromise on precision."
+                    </p>
+                    
+                    <div class="flex items-center gap-8 pt-6">
+                        <div class="space-y-1">
+                            <div class="text-white font-black uppercase tracking-widest text-[11px]">Surendra Jain</div>
+                            <div class="text-solarGreen/40 font-bold uppercase tracking-widest text-[9px]">Founder & Chief Engineer</div>
+                        </div>
+                        <!-- Stylized Signature Effect -->
+                        <div class="h-12 w-[1px] bg-white/10 rotate-12"></div>
+                        <div class="text-2xl font-serif italic text-white/20 select-none">S. Jain</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative group reveal-right">
+                <div class="aspect-square rounded-[4rem] overflow-hidden border border-white/5 shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1594818379496-da1e345b0ded?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]" alt="Founding Legacy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-deepForest to-transparent opacity-60"></div>
+                </div>
+                <!-- Interactive Blueprint Overlay -->
+                <div class="absolute -bottom-8 -left-8 p-10 bg-solarGreen/90 backdrop-blur-xl rounded-[3rem] shadow-2xl max-w-xs group-hover:scale-105 transition-transform duration-500">
+                    <div class="text-[9px] font-black uppercase tracking-widest text-deepForest mb-2">Technical Authority</div>
+                    <p class="text-sm font-bold text-deepForest leading-tight">MNRE-Approved Technical Architect with 35+ years of combined engineering excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Company Overview: Operational History -->
+    <section class="py-32 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-start">
+                <div class="space-y-12 reveal-left">
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full">
+                        <span class="text-[10px] uppercase font-black tracking-[0.3em] text-solarGreen">Established 2018</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold font-heading text-deepForest tracking-tighter leading-tight uppercase">Operational <br/> <span class="italic text-solarGreen/60 text-3xl md:text-4xl">Excellence.</span></h2>
+                    
+                    <div class="space-y-6 text-lg text-deepForest/70 leading-relaxed font-medium">
+                        <p>
+                            Established in the year 2018, U.P Refrigeration and Sales Co in Radha Mohan Patel Market, Kalyanpur, Kanpur is a top player in the category Solar Panel Dealers. Our establishment acts as a one-stop destination servicing customers both local and from other parts of Kanpur.
+                        </p>
+                        <p>
+                            Located prominently at GT Road, near IIT Metro Station, we have established a firm foothold in the industry through our core belief that customer satisfaction is as important as our products and services. Our dedicated team works tirelessly to achieve the common vision and larger goals of the company.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-auroraWhite rounded-[4rem] p-12 border border-deepForest/5 shadow-sm reveal-right">
+                    <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Primary Specializations</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        @foreach([
+                            'Solar Panel Dealers', 
+                            'Installation Services', 
+                            'Inverter Battery Dealers', 
+                            'Solar Energy Systems',
+                            'Solar Inverter Dealers',
+                            'Panel Manufacturing',
+                            'UTL Solar Solutions',
+                            'Mounting Structures'
+                        ] as $service)
+                            <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-deepForest/[0.03]">
+                                <span class="w-1.5 h-1.5 bg-solarGreen rounded-full"></span>
+                                <span class="text-[11px] font-bold text-deepForest/60 uppercase tracking-widest">{{ $service }}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section: Clarity in Engineering -->
+    <section class="py-32 bg-auroraWhite relative overflow-hidden">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-up">
+                <div class="text-solarGreen font-black uppercase tracking-[0.4em] text-[10px] mb-4">Support Hub</div>
+                <h2 class="text-4xl md:text-5xl font-bold font-heading text-deepForest tracking-tighter leading-tight uppercase italic text-center">Frequently Asked <br/> <span class="text-solarGreen">Questions.</span></h2>
+            </div>
+
+            <div class="space-y-4">
+                @php
+                    $faqs = [
+                        ['q' => 'What is the lifespan of solar panels?', 'a' => 'Most solar panels are engineered to last for 25–30 years with minimal degradation.'],
+                        ['q' => 'What are the benefits of installing solar panels?', 'a' => 'Solar panels significantly reduce your electricity bills and offer various tax rebates and government incentives.'],
+                        ['q' => 'Do solar panels work without sunlight?', 'a' => 'While maximum efficiency is achieved on sunny days, electricity is still produced during cloudy weather through diffused light.'],
+                        ['q' => 'How can I locate U.P Refrigeration and Sales Co?', 'a' => 'We are prominently located at Radha Mohan Patel Market, GT Road, near the IIT Metro Station in Kanpur.'],
+                        ['q' => 'How to maintain solar panels?', 'a' => 'Routine cleaning once a month is recommended to remove dust and improve the durability and efficiency of the arrays.'],
+                        ['q' => 'Is getting solar panels for your home costly?', 'a' => 'Solar panels represent a one-time capital investment; once commissioned, they provide free electricity for decades.']
+                    ];
+                @endphp
+
+                @foreach($faqs as $index => $f)
+                    <div class="group reveal-up bg-white rounded-[2rem] border border-deepForest/5 overflow-hidden transition-all duration-500 hover:border-solarGreen/30">
+                        <button class="w-full p-8 text-left flex justify-between items-center" onclick="toggleFaq({{ $index }})">
+                            <span class="text-base font-bold text-deepForest uppercase tracking-tight">{{ $f['q'] }}</span>
+                            <span class="w-8 h-8 rounded-full bg-auroraWhite flex items-center justify-center transition-transform group-hover:bg-solarGreen group-hover:text-deepForest" id="faq-icon-{{ $index }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                            </span>
+                        </button>
+                        <div class="max-h-0 overflow-hidden transition-all duration-500 bg-white" id="faq-content-{{ $index }}">
+                            <div class="p-8 pt-0 text-sm text-deepForest/60 leading-relaxed font-medium">
+                                {{ $f['a'] }}
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            // Close others
+            document.querySelectorAll('[id^="faq-content-"]').forEach((el, i) => {
+                if (i !== index) {
+                    el.style.maxHeight = null;
+                    document.getElementById(`faq-icon-${i}`).style.transform = 'rotate(0deg)';
+                }
+            });
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+
+    <!-- Accreditation Wall: High Contrast -->
+    <section class="py-32 bg-deepForest relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-[10px] font-black uppercase tracking-[0.8em] text-solarGreen mb-20 animate-pulse">GLOBAL ACCREDITATIONS</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="text-white font-black text-2xl tracking-tighter">MNRE<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">GOVT OF INDIA</span></div>
+                <div class="text-white font-black text-2xl tracking-tighter">ISO<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">9001:2015</span></div>
+                <div class="text-white font-black text-2xl tracking-tighter">NEDA<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">LICENSED</span></div>
+                <div class="text-white font-black text-2xl tracking-tighter">BEE<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">STAR RATED</span></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-deepForest py-32 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-20">
+        <div class="lg:col-span-1 space-y-10">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </div>
+                <span class="text-xl font-black tracking-tighter uppercase text-white">U.P.R. <span class="text-solarGreen">Solar</span></span>
+            </div>
+            <p class="text-base font-bold text-white/40 leading-relaxed">
+                MNRE & ISO Certified Solar Infrastructure. <br/> Engineering India's Future since 2013.
+            </p>
+        </div>
+        
+        <div>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Headquarters</h4>
+            <p class="text-base font-bold text-white/70 leading-relaxed">Near IIT Metro Station, <br/> Kanpur, Uttar Pradesh, <br/> India - 208016</p>
+        </div>
+        
+        <div>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Communications</h4>
+            <ul class="space-y-6 text-base font-bold text-white/70">
+                <li><a href="tel:+919412452844" class="hover:text-solarGreen transition-colors flex items-center gap-3"><span class="text-[10px] text-white/20">CALL</span> +91-9412452844</a></li>
+                <li><a href="mailto:info@uprsolargreenenergy.com" class="hover:text-solarGreen transition-colors flex items-center gap-3"><span class="text-[10px] text-white/20">MAIL</span> info@uprsolar.com</a></li>
+            </ul>
+        </div>
+
+        <div class="space-y-6">
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Status</h4>
+            <div class="p-6 bg-white/5 rounded-3xl border border-white/5">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="w-2 h-2 bg-solarGreen rounded-full animate-pulse-glow"></span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white">GRID ACTIVE</span>
+                </div>
+                <div class="text-[10px] text-white/40 font-black uppercase tracking-widest">Accepting New Project Proposals</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-6 mt-32 pt-12 border-t border-white/5 text-[10px] font-black text-white/20 uppercase tracking-[0.5em] text-center">
+        © 2026 U.P.R. Solar Green Energy™ | U.P. Refrigeration & Sales Co.
+    </div>
+</footer>
 @endsection
