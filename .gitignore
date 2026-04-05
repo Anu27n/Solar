@@ -23,3 +23,11 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Large Binaries and Temporary Dumps
+/chrome
+*.txt
+*.log
+*.dump
+/scraper.js
+/process_dom.php
