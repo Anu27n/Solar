@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>U.P.R. Solar Green EnergyΓäó</title>
+    <meta name="description" content="MNRE & ISO Certified Solar Company in Kanpur. Solar panels, rooftop systems, inverters, and batteries by U.P.R. Solar Green EnergyΓäó." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              solarGreen: '#2ECC71',
+              deepGreen: '#27AE60',
+              solarOrange: '#F39C12',
+              navyBlue: '#2C3E50',
+              lightEco: '#E8F8F5',
+              warmGlow: '#FDEBD0',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 1s ease-out forwards',
+              'float': 'float 3s ease-in-out infinite',
+              'ken-burns': 'kenBurns 20s infinite alternate ease-in-out',
+              'bounce-slow': 'bounce 3s infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              kenBurns: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.15)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+      
+      /* Smooth scrolling for the whole page */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Custom utility for underline animation */
+      .hover-underline-animation {
+        display: inline-block;
+        position: relative;
+      }
+      .hover-underline-animation::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #2ECC71;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      .hover-underline-animation:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    </style>
+
+  <link rel="stylesheet" href="/index.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.1/client",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.1/",
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+        "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.10.1"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-CpHxCw-H.js"></script>
+</head>
+  <body class="bg-white text-navyBlue dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div id="root"></div>
+</body>
+</html>
