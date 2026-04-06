@@ -1,31 +1,9 @@
 @extends('layouts.react')
 
 @section('content')
-<nav class="sticky top-0 z-[100] transition-all duration-300 px-6 py-4">
-    <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/70 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]">
-        <div class="flex items-center gap-3">
-            <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-            </div>
-            <span class="text-xl font-black tracking-tighter uppercase text-deepForest">U.P.R. <span class="text-solarGreen">Solar</span></span>
-        </div>
-        
-        <div class="hidden md:flex items-center gap-8">
-            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
-                <a href="{{ $link }}" class="text-[10px] font-black uppercase tracking-[0.2em] {{ Request::is(trim($link, '/')) || (Request::is('products') && $label == 'Products') ? 'text-solarGreen' : 'text-deepForest/60' }} hover:text-solarGreen transition-colors">{{ $label }}</a>
-            @endforeach
-        </div>
+@include('partials.navbar')
 
-        <div class="flex items-center gap-4">
-            <a href="/products" class="p-2 text-deepForest/40 hover:text-deepForest transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-            </a>
-            <button class="px-6 py-2 bg-solarGreen text-deepForest font-black rounded-lg text-[10px] uppercase tracking-widest shadow-lg hover:scale-105 transition-transform">Portal</button>
-        </div>
-    </div>
-</nav>
-
-<main class="bg-auroraWhite relative">
+<main class="bg-obsidian relative">
     <!-- SVG Noise Texture Filter -->
     <svg class="absolute inset-0 w-full h-full opacity-[0.02] pointer-events-none -z-10">
         <filter id="noiseFilter">
@@ -34,7 +12,7 @@
         <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
     </svg>
     <!-- Product Hero -->
-    <section class="relative py-24 md:py-32 overflow-hidden">
+    <section class="relative py-16 md:py-20 overflow-hidden">
         <!-- Radial Glow Background -->
         <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-solarGreen/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
         <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
@@ -42,15 +20,15 @@
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
             <div class="text-left reveal-left space-y-10">
                 <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full border border-solarGreen/10">
-                    <span class="text-[10px] uppercase font-black tracking-[0.3em] text-solarGreen">Precision Hardware</span>
+                    <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">Precision Hardware</span>
                 </div>
                 
-                <h1 class="text-6xl md:text-8xl font-black font-heading leading-[0.85] tracking-tighter text-deepForest uppercase drop-shadow-sm">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading leading-[0.85] tracking-tighter text-white uppercase drop-shadow-sm">
                     SOLAR <br/>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-solarGreen to-emerald-400 drop-shadow-[0_0_25px_rgba(0,223,130,0.4)] italic">STORE.</span>
                 </h1>
                 
-                <p class="text-lg text-deepForest/60 max-w-xl leading-relaxed font-medium border-l-4 border-solarGreen/20 pl-6">
+                <p class="text-base text-white/50 max-w-xl leading-relaxed font-medium border-l-4 border-solarGreen/20 pl-6">
                     Tier-1 engineering components approved for high-efficiency grid participation. <br/> Premium grade panels, inverters, and storage solutions.
                 </p>
             </div>
@@ -62,10 +40,9 @@
                          class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] group-hover:scale-105 transition-transform duration-1000 animate-float" 
                          alt="Premium Solar Asset">
                     
-                    <!-- Decorative technical labels -->
-                    <div class="absolute -top-4 -right-4 p-4 bg-white/80 backdrop-blur-xl border border-white/40 rounded-2xl shadow-xl animate-float-slow">
-                        <div class="text-[9px] font-black uppercase text-solarGreen tracking-widest">Efficiency</div>
-                        <div class="text-xl font-bold text-deepForest tracking-tighter">23.8%</div>
+                    <div class="absolute -top-4 -right-4 p-4 bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl animate-float-slow">
+                        <div class="text-[10px] font-bold uppercase text-solarGreen tracking-widest">Efficiency</div>
+                        <div class="text-xl font-bold text-white tracking-tighter">23.8%</div>
                     </div>
                 </div>
                 <!-- Back Glow -->
@@ -96,21 +73,21 @@
     <section class="pb-20">
         <div class="max-w-7xl mx-auto px-6 overflow-x-auto">
             <div class="flex justify-center gap-4 min-w-max pb-4" id="category-filter-bar">
-                <button onclick="filterProducts('All')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-solarGreen text-deepForest shadow-lg" data-category="All">All</button>
-                <button onclick="filterProducts('Solar Panels')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Solar Panels">Solar Panels</button>
-                <button onclick="filterProducts('Inverters')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Inverters">Inverters</button>
-                <button onclick="filterProducts('Batteries')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Batteries">Batteries</button>
-                <button onclick="filterProducts('Water Heaters')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Water Heaters">Water Heaters</button>
-                <button onclick="filterProducts('Lighting')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Lighting">Lighting</button>
-                <button onclick="filterProducts('Agriculture')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Agriculture">Agriculture</button>
-                <button onclick="filterProducts('Accessories')" class="category-btn px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all bg-white text-deepForest/40 border border-deepForest/5 hover:border-solarGreen/40" data-category="Accessories">Accessories</button>
+                <button onclick="filterProducts('All')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-solarGreen text-deepForest shadow-lg" data-category="All">All</button>
+                <button onclick="filterProducts('Solar Panels')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Solar Panels">Solar Panels</button>
+                <button onclick="filterProducts('Inverters')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Inverters">Inverters</button>
+                <button onclick="filterProducts('Batteries')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Batteries">Batteries</button>
+                <button onclick="filterProducts('Water Heaters')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Water Heaters">Water Heaters</button>
+                <button onclick="filterProducts('Lighting')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Lighting">Lighting</button>
+                <button onclick="filterProducts('Agriculture')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Agriculture">Agriculture</button>
+                <button onclick="filterProducts('Accessories')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Accessories">Accessories</button>
             </div>
         </div>
     </section>
 
     <!-- Standardized Product Grid -->
-    <section class="pb-32">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="product-grid">
+    <section class="pb-20">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children" id="product-grid">
             @php
                 $products = [
                     [
@@ -181,23 +158,23 @@
             @endphp
 
             @foreach($products as $p)
-                <div class="product-card group bg-white rounded-[2.5rem] border border-deepForest/5 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-solarGreen/20 flex flex-col" data-category="{{ $p['category'] }}">
-                    <div class="aspect-video relative overflow-hidden bg-auroraWhite">
+                <div class="product-card hover-lift group bg-white/[0.03] rounded-[2rem] border border-white/[0.06] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:border-solarGreen/20 flex flex-col" data-category="{{ $p['category'] }}">
+                    <div class="aspect-video relative overflow-hidden bg-obsidian">
                         <img src="{{ $p['image_url'] }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="{{ $p['name'] }}">
-                        <div class="absolute top-6 left-6 px-3 py-1 bg-white/90 backdrop-blur-md rounded-lg text-[8px] font-black uppercase tracking-widest text-deepForest">In Stock</div>
+                        <div class="absolute top-6 left-6 px-3 py-1 bg-white/10 backdrop-blur-md rounded-lg text-[9px] font-bold uppercase tracking-widest text-white">In Stock</div>
                     </div>
-                    <div class="p-8 flex-grow flex flex-col space-y-4">
+                    <div class="p-6 flex-grow flex flex-col space-y-4">
                         <div class="flex justify-between items-start">
-                            <span class="text-[9px] font-black text-solarGreen uppercase tracking-[0.3em]">{{ $p['category'] }}</span>
-                            <span class="text-[9px] font-black text-deepForest/20 uppercase tracking-widest">{{ $p['stat'] }}</span>
+                            <span class="text-[10px] font-bold text-solarGreen uppercase tracking-[0.3em]">{{ $p['category'] }}</span>
+                            <span class="text-[10px] font-bold text-white/20 uppercase tracking-widest">{{ $p['stat'] }}</span>
                         </div>
-                        <h3 class="text-lg font-bold text-deepForest tracking-tight leading-tight uppercase">{{ $p['name'] }}</h3>
-                        <p class="text-[10px] text-deepForest/40 font-medium uppercase tracking-widest">{{ $p['description'] }}</p>
+                        <h3 class="text-base font-bold text-white tracking-tight leading-tight uppercase">{{ $p['name'] }}</h3>
+                        <p class="text-[11px] text-white/40 font-medium uppercase tracking-widest">{{ $p['description'] }}</p>
                         
-                        <div class="pt-8 mt-auto flex items-center justify-between border-t border-deepForest/5">
-                            <div class="text-2xl font-black text-deepForest tracking-tighter">{{ $p['price'] }}</div>
-                            <button class="w-12 h-12 bg-auroraWhite border border-deepForest/5 rounded-2xl flex items-center justify-center hover:bg-solarGreen hover:border-solarGreen transition-all group/btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-deepForest group-hover/btn:scale-110 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        <div class="pt-8 mt-auto flex items-center justify-between border-t border-white/[0.06]">
+                            <div class="text-xl font-black text-white tracking-tighter">{{ $p['price'] }}</div>
+                            <button class="w-12 h-12 bg-white/[0.03] border border-white/[0.06] rounded-2xl flex items-center justify-center hover:bg-solarGreen hover:border-solarGreen transition-all group/btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white group-hover/btn:text-deepForest group-hover/btn:scale-110 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </button>
                         </div>
                     </div>
@@ -207,16 +184,16 @@
     </section>
 
     <!-- Bulk Order CTA -->
-    <section class="pb-32 px-6">
-        <div class="max-w-7xl mx-auto relative rounded-[4rem] p-16 md:p-24 text-center overflow-hidden group border border-white/5 bg-[#0B0F0E] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+    <section class="pb-20 px-6">
+        <div class="max-w-7xl mx-auto relative rounded-[3rem] p-10 md:p-16 text-center overflow-hidden group border border-white/5 bg-[#0B0F0E] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,223,130,0.15),transparent_60%)]"></div>
             
             <div class="relative z-10 max-w-2xl mx-auto space-y-10">
-                <h3 class="text-4xl md:text-5xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic">
+                <h3 class="text-3xl md:text-4xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic">
                     Bulk Order or <br/>
                     <span class="text-solarGreen">Custom System?</span>
                 </h3>
-                <p class="text-lg text-white/50 font-medium leading-relaxed max-w-2xl mx-auto">
+                <p class="text-base text-white/50 font-medium leading-relaxed max-w-2xl mx-auto">
                     Access engineering-grade architectural estimates tailored for industrial-scale deployment or residential customization.
                 </p>
                 <div class="pt-10">
@@ -232,40 +209,39 @@
     </section>
 </main>
 
-<footer class="bg-deepForest py-32 relative overflow-hidden text-white border-t border-white/5">
-    <!-- Footer content remains the same for consistency -->
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-20">
-        <div class="lg:col-span-1 space-y-10">
-            <div class="flex items-center gap-3">
-                <div class="p-2 bg-solarGreen rounded-lg shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+<footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-6">
+            <div class="flex items-center gap-2.5">
+                <div class="p-1.5 bg-solarGreen rounded-lg shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0F0E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 </div>
-                <span class="text-xl font-black tracking-tighter uppercase text-white">U.P.R. <span class="text-solarGreen">Solar</span></span>
+                <span class="text-lg font-black tracking-tighter uppercase text-white">U.P.R. <span class="text-solarGreen">Solar</span></span>
             </div>
-            <p class="text-base font-bold text-white/40 leading-relaxed">MNRE & ISO Certified Solar Infrastructure. <br/> Engineering India's Future since 2013.</p>
+            <p class="text-xs text-white/40 font-medium leading-relaxed">MNRE & ISO Certified Solar Infrastructure. Engineering India's Future since 2013.</p>
         </div>
         <div>
-            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Headquarters</h4>
-            <p class="text-base font-bold text-white/70 leading-relaxed">Near IIT Metro Station, Kanpur - 208016</p>
+            <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-solarGreen mb-6">Headquarters</h4>
+            <p class="text-sm font-medium text-white/60 leading-relaxed">Near IIT Metro Station, Kanpur - 208016</p>
         </div>
         <div>
-            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Communications</h4>
-            <ul class="space-y-6 text-base font-bold text-white/70">
-                <li><a href="tel:+919412452844" class="hover:text-solarGreen transition-colors flex items-center gap-3">+91-9412452844</a></li>
-                <li><a href="mailto:info@uprsolar.com" class="hover:text-solarGreen transition-colors flex items-center gap-3">info@uprsolar.com</a></li>
+            <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-solarGreen mb-6">Communications</h4>
+            <ul class="space-y-4 text-sm font-medium text-white/60">
+                <li><a href="tel:+919412452844" class="hover:text-solarGreen transition-colors">+91-9412452844</a></li>
+                <li><a href="mailto:info@uprsolar.com" class="hover:text-solarGreen transition-colors">info@uprsolar.com</a></li>
             </ul>
         </div>
         <div>
-            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-solarGreen mb-10">Status</h4>
-            <div class="p-6 bg-white/5 rounded-3xl border border-white/5">
-                <div class="flex items-center gap-3 mb-2">
+            <h4 class="text-[11px] font-bold uppercase tracking-[0.3em] text-solarGreen mb-6">Status</h4>
+            <div class="p-5 bg-white/5 rounded-2xl border border-white/5">
+                <div class="flex items-center gap-2.5 mb-1.5">
                     <span class="w-2 h-2 bg-solarGreen rounded-full animate-pulse-glow"></span>
-                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white">GRID ACTIVE</span>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-white">GRID ACTIVE</span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-32 pt-12 border-t border-white/5 text-[10px] font-black text-white/20 uppercase tracking-[0.5em] text-center">
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
         © 2026 U.P.R. Solar Green Energy™
     </div>
 </footer>
@@ -275,18 +251,16 @@
         const cards = document.querySelectorAll('.product-card');
         const buttons = document.querySelectorAll('.category-btn');
 
-        // Update Button States
         buttons.forEach(btn => {
             if (btn.getAttribute('data-category') === category) {
-                btn.classList.remove('bg-white', 'text-deepForest/40', 'border', 'border-deepForest/5');
+                btn.classList.remove('bg-white/[0.03]', 'text-white/40', 'border', 'border-white/[0.06]');
                 btn.classList.add('bg-solarGreen', 'text-deepForest', 'shadow-lg');
             } else {
-                btn.classList.add('bg-white', 'text-deepForest/40', 'border', 'border-deepForest/5');
+                btn.classList.add('bg-white/[0.03]', 'text-white/40', 'border', 'border-white/[0.06]');
                 btn.classList.remove('bg-solarGreen', 'text-deepForest', 'shadow-lg');
             }
         });
 
-        // Filter Cards
         cards.forEach(card => {
             card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
             if (category === 'All' || card.getAttribute('data-category') === category) {
@@ -305,7 +279,6 @@
         });
     }
 
-    // Initialize display states
     document.addEventListener('DOMContentLoaded', () => {
         const cards = document.querySelectorAll('.product-card');
         cards.forEach(card => {

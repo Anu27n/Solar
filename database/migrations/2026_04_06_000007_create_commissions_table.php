@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('commissions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('channel_partner_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
+            $table->decimal('amount', 12, 2);
+            $table->enum('type', ['per_installation', 'monthly', 'yearly', 'bonus'])->default('per_installation');
+            $table->enum('status', ['pending', 'approved', 'paid'])->default('pending');
+            $table->date('period_month')->nullable();
+            $table->text('notes')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('commissions');
+    }
+};
