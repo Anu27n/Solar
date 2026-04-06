@@ -33,8 +33,9 @@
                     <input type="text" name="phone" id="phone" value="{{ old('phone') }}" required class="w-full rounded-xl border border-theme bg-input px-4 py-2.5 text-sm t-primary placeholder:text-[var(--text-faint)] focus:border-solar-500 focus:ring-2 focus:ring-solar-500/20 outline-none">
                 </div>
                 <div>
-                    <label for="email" class="block text-xs font-medium t-muted mb-1.5">Email</label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" class="w-full rounded-xl border border-theme bg-input px-4 py-2.5 text-sm t-primary placeholder:text-[var(--text-faint)] focus:border-solar-500 focus:ring-2 focus:ring-solar-500/20 outline-none">
+                    <label for="email" class="block text-xs font-medium t-muted mb-1.5">Email <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" required autocomplete="email" class="w-full rounded-xl border border-theme bg-input px-4 py-2.5 text-sm t-primary placeholder:text-[var(--text-faint)] focus:border-solar-500 focus:ring-2 focus:ring-solar-500/20 outline-none">
+                    <p class="mt-1.5 text-[11px] t-faint leading-relaxed">A customer portal account is created automatically and a temporary password is emailed to this address. Must not match an existing login email.</p>
                 </div>
                 <div class="sm:col-span-2">
                     <label for="address" class="block text-xs font-medium t-muted mb-1.5">Address <span class="text-red-500">*</span></label>

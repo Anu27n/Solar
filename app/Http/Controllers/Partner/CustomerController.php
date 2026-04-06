@@ -3,10 +3,17 @@
 namespace App\Http\Controllers\Partner;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CustomerPortalWelcome;
 use App\Models\Customer;
 use App\Models\CustomerKyc;
 use App\Models\Package;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CustomerController extends Controller
 {
@@ -35,7 +42,7 @@ class CustomerController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'email' => 'nullable|email',
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class, 'email')],
             'address' => 'required|string',
             'city' => 'required|string',
             'state' => 'required|string',
@@ -49,8 +56,41 @@ class CustomerController extends Controller
         $validated['channel_partner_id'] = auth()->id();
         $validated['status'] = 'registration_completed';
 
-        $customer = Customer::create($validated);
-        return redirect()->route('partner.customers.show', $customer)->with('success', 'Customer added.');
+        $plainPassword = Str::password(14);
+
+        $customer = DB::transaction(function () use ($validated, $plainPassword) {
+            $user = User::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'password' => Hash::make($plainPassword),
+                'role' => 'customer',
+                'phone' => $validated['phone'],
+                'address' => $validated['address'],
+                'city' => $validated['city'],
+                'state' => $validated['state'],
+                'is_active' => true,
+            ]);
+
+            $validated['user_id'] = $user->id;
+
+            return Customer::create($validated);
+        });
+
+        $loginUrl = url('/login');
+        try {
+            Mail::to($customer->email)->send(new CustomerPortalWelcome(
+                $customer->name,
+                $customer->email,
+                $plainPassword,
+                $loginUrl,
+            ));
+            $message = 'Customer added. Portal login details have been sent to their email.';
+        } catch (\Throwable $e) {
+            report($e);
+            $message = 'Customer and portal account were created, but the email could not be sent. Check mail settings (e.g. SMTP) or share login details manually.';
+        }
+
+        return redirect()->route('partner.customers.show', $customer)->with('success', $message);
     }
 
     public function show(Customer $customer)

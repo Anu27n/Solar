@@ -3,10 +3,15 @@
 @section('content')
 @include('partials.navbar')
 
-<main class="bg-obsidian">
+<main class="marketing-atmosphere relative">
+@include('partials.marketing-page-atmosphere', [
+    'marketingAtmosphereImage' => asset('assets/images/hero-solar-sky.jpg'),
+    'marketingAtmospherePosition' => 'center 40%',
+])
+<div class="relative z-10">
     <!-- Projects Hero: Technical Legacy -->
-    <section class="relative py-20 lg:py-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center reveal-up">
+    <section class="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center reveal-up">
             <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full mb-10">
                 <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">System Portfolio</span>
             </div>
@@ -22,8 +27,8 @@
     </section>
 
     <!-- Impact Stats: Bento Grid -->
-    <section class="pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+    <section class="pb-16 sm:pb-20 px-4 sm:px-6 marketing-section-bg border-t border-white/[0.06] pt-10 sm:pt-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 stagger-children">
             <div class="p-8 bg-white/[0.03] rounded-[2rem] border border-white/[0.06] shadow-sm hover:shadow-xl transition-all group hover-lift">
                 <div class="text-[11px] font-bold uppercase text-solarGreen tracking-[0.3em] mb-6">Aggregate Power</div>
                 <div class="text-2xl font-bold text-white tracking-tighter">150+ <span class="text-lg text-white/20">MW</span></div>
@@ -47,8 +52,8 @@
     <section class="pb-20 bg-deepForest relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-[600px] bg-[radial-gradient(circle_at_50%_0%,rgba(0,223,130,0.1),transparent_70%)]"></div>
         
-        <div class="max-w-7xl mx-auto px-6 pt-20 lg:pt-28">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 lg:pt-28">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-6 sm:gap-8 reveal-up">
                 <div class="max-w-2xl">
                     <div class="text-solarGreen font-bold uppercase tracking-[0.4em] text-[11px] mb-4">Latest Commissions</div>
                     <h2 class="text-3xl md:text-4xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic">The Solar <br/> <span class="text-solarGreen">Archive.</span></h2>
@@ -58,7 +63,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 stagger-children">
                 @foreach([
-                    ['n' => 'Tiwari Cold Storage', 'l' => 'Unnao, UP', 's' => '100kW', 't' => 'Industrial Cooling', 'img' => 'https://images.unsplash.com/photo-1565514020125-9a84752c1df8?auto=format&fit=crop&w=1200&q=80'],
+                    ['n' => 'Tiwari Cold Storage', 'l' => 'Unnao, UP', 's' => '100kW', 't' => 'Industrial Cooling', 'img' => asset('assets/images/services/commercial.png')],
                     ['n' => 'Green Valley School', 'l' => 'Lucknow, UP', 's' => '50kW', 't' => 'Academic Campus', 'img' => 'https://images.unsplash.com/photo-1594818379496-da1e345b0ded?auto=format&fit=crop&w=1200&q=80'],
                     ['n' => 'Sharma Residency', 'l' => 'Kanpur Sector 5', 's' => '5kW', 't' => 'Residential Plus', 'img' => 'https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=1200&q=80'],
                     ['n' => 'IIT Kanpur Ancillary', 'l' => 'Kalyanpur, UP', 's' => '25kW', 't' => 'Research Lab', 'img' => 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80']
@@ -107,9 +112,9 @@
     </section>
 
     <!-- Structural Anchor CTA -->
-    <section class="py-20 lg:py-28 bg-obsidian">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="p-10 md:p-16 bg-white/[0.03] rounded-[3rem] border border-white/[0.06] text-center space-y-12 relative overflow-hidden group hover-lift">
+    <section class="py-16 sm:py-20 lg:py-28 marketing-section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="p-8 sm:p-10 md:p-16 bg-white/[0.03] rounded-[2rem] sm:rounded-[3rem] border border-white/[0.06] text-center space-y-10 sm:space-y-12 relative overflow-hidden group hover-lift reveal-up">
                 <div class="absolute -top-24 -right-24 w-96 h-96 bg-solarGreen/5 blur-[120px] rounded-full group-hover:bg-solarGreen/10 transition-all duration-700"></div>
                 
                 <h3 class="text-lg font-bold font-heading text-white tracking-tighter leading-tight uppercase italic relative z-10">
@@ -118,17 +123,18 @@
                 </h3>
                 
                 <div class="pt-8 relative z-10">
-                    <a href="/contact" class="inline-flex items-center gap-6 bg-solarGreen text-deepForest px-12 py-6 rounded-[2rem] font-bold uppercase tracking-widest text-[11px] shadow-2xl hover:scale-105 active:scale-95 transition-all">
-                        Consult Our Engineers <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-deepForest"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    <a href="/contact" class="inline-flex items-center justify-center gap-6 bg-solarGreen text-deepForest w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 min-h-[52px] rounded-[2rem] font-bold uppercase tracking-widest text-[11px] shadow-2xl hover:scale-105 active:scale-95 transition-all">
+                        Consult Our Engineers <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-deepForest shrink-0"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </section>
+</div>
 </main>
 
-<footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<footer class="bg-deepForest py-16 sm:py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div class="space-y-6">
             <div class="flex items-center gap-2.5">
                 <div class="p-1.5 bg-solarGreen rounded-lg shadow-lg">
@@ -160,7 +166,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
         © 2026 U.P.R. Solar Green Energy™ | U.P. Refrigeration & Sales Co.
     </div>
 </footer>

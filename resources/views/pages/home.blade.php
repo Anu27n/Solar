@@ -4,130 +4,83 @@
 @include('partials.navbar')
 
 <main>
-    {{-- ═══════════════ HERO ═══════════════ --}}
-    <section class="relative min-h-screen flex items-center overflow-hidden bg-obsidian">
-        {{-- Animated grid background --}}
-        <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(0,223,130,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,223,130,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
-        {{-- Gradient orbs --}}
-        <div class="absolute top-20 left-1/4 w-[500px] h-[500px] bg-solarGreen/5 rounded-full blur-[150px] animate-float-slow"></div>
-        <div class="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-solarGreen/3 rounded-full blur-[120px] animate-float"></div>
+    {{-- ═══════════════ HERO (sky / solar photo — 3D panel removed per client) ═══════════════ --}}
+    <section class="relative min-h-screen min-h-[100dvh] flex items-center overflow-hidden bg-obsidian">
+        <div class="absolute inset-0 hero-photo-layer" aria-hidden="true"></div>
+        <div class="absolute inset-0 hero-photo-overlay" aria-hidden="true"></div>
+        <div class="absolute inset-0 opacity-[0.035] dark:opacity-[0.04]" style="background-image: linear-gradient(rgba(0,223,130,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(0,223,130,0.35) 1px, transparent 1px); background-size: 56px 56px;"></div>
+        <div class="absolute top-20 left-1/4 w-[420px] h-[420px] bg-solarGreen/5 rounded-full blur-[140px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-5 md:px-8 w-full grid lg:grid-cols-2 gap-12 lg:gap-8 py-24 lg:py-32 items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 py-20 sm:py-24 lg:py-28 items-center relative z-10">
             <div class="space-y-8 reveal-up">
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-solarGreen/10 border border-solarGreen/20 rounded-full backdrop-blur-sm">
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-solarGreen/10 border border-solarGreen/25 rounded-full">
                     <span class="w-2 h-2 bg-solarGreen rounded-full animate-pulse shadow-[0_0_8px_rgba(0,223,130,0.6)]"></span>
                     <span class="text-[11px] uppercase font-bold tracking-[0.2em] text-solarGreen">The Future of Energy</span>
                 </div>
-                
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading leading-[0.85] tracking-tighter text-white">
-                    POWERING <br/> 
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading leading-[0.88] sm:leading-[0.85] tracking-tighter text-white">
+                    POWERING <br/>
                     <span class="text-shimmer">INDIA</span> <br/>
                     <span class="text-white/20">WITH LIGHT.</span>
                 </h1>
-                
+
                 <p class="text-base text-white/40 max-w-lg leading-relaxed font-medium">
                     MNRE & ISO Certified Engineering. Reducing carbon footprints and electricity bills across Uttar Pradesh since 2013.
                 </p>
 
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="/contact" class="magnetic-btn px-8 py-4 bg-solarGreen text-deepForest font-bold rounded-xl shadow-[0_12px_36px_rgba(0,223,130,0.25)] hover:shadow-[0_20px_60px_rgba(0,223,130,0.4)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden relative text-sm">
+                <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-2">
+                    <a href="/contact" class="magnetic-btn w-full sm:w-auto justify-center px-8 py-4 min-h-[48px] inline-flex items-center bg-solarGreen text-deepForest font-bold rounded-xl shadow-[0_12px_36px_rgba(0,223,130,0.25)] hover:shadow-[0_20px_60px_rgba(0,223,130,0.4)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden relative text-sm">
                         <span class="relative z-10 flex items-center gap-2">Get Started <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
                         <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                     </a>
-                    <a href="/products" class="magnetic-btn px-8 py-4 border border-white/15 text-white font-bold rounded-xl hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 text-sm backdrop-blur-sm">
+                    <a href="/products" class="magnetic-btn w-full sm:w-auto justify-center px-8 py-4 min-h-[48px] inline-flex items-center border border-white/15 text-white font-bold rounded-xl hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 text-sm">
                         Shop Store
                     </a>
                 </div>
 
                 <div class="grid grid-cols-3 gap-3 pt-6 stagger-children">
-                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm tilt-card">
+                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] tilt-card">
                         <div class="text-2xl font-black text-white count-up tabular-nums" data-count="10" data-suffix="+">0</div>
                         <div class="text-[10px] font-bold uppercase tracking-wider text-solarGreen/80 mt-1">Years Legacy</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm tilt-card">
+                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] tilt-card">
                         <div class="text-2xl font-black text-white count-up tabular-nums" data-count="500" data-suffix="+">0</div>
                         <div class="text-[10px] font-bold uppercase tracking-wider text-solarGreen/80 mt-1">Installations</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] backdrop-blur-sm tilt-card">
+                    <div class="p-4 bg-white/[0.03] rounded-2xl border border-white/[0.06] tilt-card">
                         <div class="text-2xl font-black text-white count-up tabular-nums" data-count="90" data-suffix="%">0</div>
                         <div class="text-[10px] font-bold uppercase tracking-wider text-solarGreen/80 mt-1">Bill Cut</div>
                     </div>
                 </div>
             </div>
 
-            {{-- 3D Solar Panel Hero --}}
-            <div class="relative flex justify-center items-center reveal-scale">
-                {{-- Orbiting ring --}}
-                <div class="absolute w-[380px] h-[380px] lg:w-[450px] lg:h-[450px] rounded-full border border-solarGreen/10 orbit-ring"></div>
-                <div class="absolute w-[300px] h-[300px] lg:w-[360px] lg:h-[360px] rounded-full border border-dashed border-white/5 orbit-ring-reverse"></div>
-                
-                {{-- Main 3D Panel --}}
-                <div id="hero-panel" class="relative w-[260px] h-[400px] lg:w-[300px] lg:h-[460px] preserve-3d cursor-crosshair z-10">
-                    <div class="absolute inset-0 rounded-[2.5rem] overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(0,223,130,0.1),0_40px_80px_rgba(0,0,0,0.4)] panel-surface">
-                        {{-- Panel cells --}}
-                        <div class="w-full h-full grid grid-cols-4 grid-rows-8 gap-1 p-2.5">
-                            @for($i = 0; $i < 32; $i++)
-                                <div class="solar-cell bg-gradient-to-br from-[#0a1628] to-[#0d2040] border border-white/[0.04] rounded-sm relative overflow-hidden" style="animation-delay: {{ $i * 40 }}ms">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-solarGreen/5 to-transparent opacity-0 cell-glow"></div>
-                                    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                                </div>
-                            @endfor
-                        </div>
-                        
-                        {{-- Panel frame details --}}
-                        <div class="absolute inset-0 rounded-[2.5rem] border border-white/[0.06] pointer-events-none"></div>
-                        <div class="absolute top-4 left-4 text-[7px] font-bold tracking-[0.3em] text-white/15 uppercase">AIDA_SYS_v4.2</div>
-                        <div class="absolute bottom-4 right-4 flex flex-col items-end gap-0.5">
-                            <div class="text-[7px] font-bold tracking-[0.2em] text-solarGreen/60 uppercase">OUTPUT: 540W</div>
-                            <div class="text-[7px] font-bold tracking-[0.2em] text-white/20 uppercase">MP-540-UPR</div>
-                        </div>
-
-                        {{-- Scanning line effect --}}
-                        <div class="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-solarGreen/40 to-transparent scan-line"></div>
-                    </div>
+            {{-- Photo column (local image) --}}
+            <div class="relative reveal-scale max-w-lg mx-auto lg:max-w-none lg:mx-0">
+                <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/5">
+                    <img
+                        src="{{ asset('assets/images/hero-solar-sky.jpg') }}"
+                        alt="Solar panels under a clear sky"
+                        class="w-full h-[280px] sm:h-[340px] lg:h-[400px] object-cover object-center"
+                        loading="eager"
+                        decoding="async"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10 pointer-events-none"></div>
+                    <p class="hero-framed-caption absolute bottom-4 left-4 right-4 text-[11px] font-medium">Rooftop solar — engineered for North Indian conditions.</p>
                 </div>
-
-                {{-- Floating data badges --}}
-                <div class="absolute -top-4 right-0 lg:right-[-20px] p-3 bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl animate-float z-20">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-solarGreen/20 rounded-lg flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00DF82" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        </div>
-                        <div>
-                            <div class="text-[9px] text-white/30 font-bold uppercase tracking-wider">Energy</div>
-                            <div class="text-sm font-black text-white tabular-nums count-up" data-count="98.4" data-suffix="%" data-decimals="1">0</div>
-                        </div>
-                    </div>
+                <div class="mt-4 flex items-center gap-3 text-[11px] text-white/45">
+                    <span class="inline-flex h-px flex-1 bg-gradient-to-r from-transparent via-solarGreen/40 to-transparent"></span>
+                    <span class="shrink-0 uppercase tracking-widest font-bold text-solarGreen/90">MNRE-aligned systems</span>
+                    <span class="inline-flex h-px flex-1 bg-gradient-to-l from-transparent via-solarGreen/40 to-transparent"></span>
                 </div>
-
-                <div class="absolute -bottom-2 left-0 lg:left-[-20px] p-3 bg-white/[0.05] backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl animate-float-slow z-20">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        </div>
-                        <div>
-                            <div class="text-[9px] text-white/30 font-bold uppercase tracking-wider">Status</div>
-                            <div class="text-sm font-black text-emerald-400">OPTIMAL</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="absolute top-1/2 -right-8 lg:right-[-40px] p-2.5 bg-white/[0.04] backdrop-blur-xl border border-solarGreen/20 rounded-lg animate-float z-20">
-                    <div class="text-[8px] text-solarGreen font-bold tracking-widest">540W</div>
-                </div>
-
-                {{-- Glow effects --}}
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-solarGreen/8 rounded-full blur-[80px] animate-pulse pointer-events-none"></div>
             </div>
         </div>
 
-        {{-- Bottom gradient fade --}}
-        <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-obsidian to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-obsidian to-transparent pointer-events-none"></div>
     </section>
 
     {{-- ═══════════════ TRUST BAR ═══════════════ --}}
     <section class="py-8 bg-obsidian border-y border-white/5 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-30 hover:opacity-70 transition-all duration-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap justify-center items-center gap-6 sm:gap-8 md:gap-16 opacity-30 hover:opacity-70 transition-all duration-700 reveal-up">
             <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-white">MNRE CERTIFIED</span>
             <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-white">ISO 9001:2015</span>
             <div class="w-px h-5 bg-white/10 hidden md:block"></div>
@@ -137,13 +90,13 @@
     </section>
 
     {{-- ═══════════════ TECHNOLOGY ═══════════════ --}}
-    <section class="py-24 lg:py-32 bg-obsidian relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(#00DF82 1px, transparent 1px); background-size: 50px 50px;"></div>
+    <section class="py-16 sm:py-24 lg:py-32 bg-obsidian relative overflow-x-hidden">
+        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(#00DF82 1px, transparent 1px); background-size: 50px 50px;"></div>
         
-        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:grid lg:grid-cols-2 items-center gap-16 relative z-10">
-            <div class="space-y-6 reveal-left">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:grid lg:grid-cols-2 lg:items-center gap-10 lg:gap-16 relative z-10 w-full">
+            <div class="w-full min-w-0 space-y-6 reveal-left text-left">
                 <div class="w-16 h-0.5 bg-gradient-to-r from-solarGreen to-transparent rounded-full"></div>
-                <h2 class="text-3xl md:text-4xl font-bold font-heading leading-tight tracking-tighter uppercase text-white">
+                <h2 class="text-[1.65rem] sm:text-3xl md:text-4xl font-bold font-heading leading-[1.15] sm:leading-tight tracking-tighter uppercase text-white">
                     PRECISION <br/> 
                     <span class="text-solarGreen">ENGINEERING</span>
                 </h2>
@@ -151,34 +104,34 @@
                     Featuring our <strong class="text-white/70">MP-540-UPR</strong> flagship panel. Specifically optimized for the high-intensity thermal index of North India.
                 </p>
                 
-                <div class="grid grid-cols-2 gap-3 pt-4 stagger-children">
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-                        <div class="text-xl font-black text-solarGreen">540W</div>
-                        <div class="text-[10px] text-white/30 font-bold uppercase tracking-wider mt-1">Peak Output</div>
+                <div class="grid grid-cols-2 gap-2.5 sm:gap-3 pt-4 stagger-children">
+                    <div class="p-3.5 sm:p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] min-h-[4.5rem] sm:min-h-0 flex flex-col justify-center">
+                        <div class="text-lg sm:text-xl font-black text-solarGreen tabular-nums">540W</div>
+                        <div class="text-[9px] sm:text-[10px] text-white/30 font-bold uppercase tracking-wide sm:font-bold sm:tracking-wider mt-1 leading-tight">Peak Output</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-                        <div class="text-xl font-black text-solarGreen">21.5%</div>
-                        <div class="text-[10px] text-white/30 font-bold uppercase tracking-wider mt-1">Efficiency</div>
+                    <div class="p-3.5 sm:p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] min-h-[4.5rem] sm:min-h-0 flex flex-col justify-center">
+                        <div class="text-lg sm:text-xl font-black text-solarGreen tabular-nums">21.5%</div>
+                        <div class="text-[9px] sm:text-[10px] text-white/30 font-bold uppercase tracking-wide sm:tracking-wider mt-1 leading-tight">Efficiency</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-                        <div class="text-xl font-black text-solarGreen">25yr</div>
-                        <div class="text-[10px] text-white/30 font-bold uppercase tracking-wider mt-1">Warranty</div>
+                    <div class="p-3.5 sm:p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] min-h-[4.5rem] sm:min-h-0 flex flex-col justify-center">
+                        <div class="text-lg sm:text-xl font-black text-solarGreen tabular-nums">25yr</div>
+                        <div class="text-[9px] sm:text-[10px] text-white/30 font-bold uppercase tracking-wide sm:tracking-wider mt-1 leading-tight">Warranty</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/[0.06]">
-                        <div class="text-xl font-black text-solarGreen">IP68</div>
-                        <div class="text-[10px] text-white/30 font-bold uppercase tracking-wider mt-1">Rating</div>
+                    <div class="p-3.5 sm:p-4 bg-white/[0.03] rounded-xl border border-white/[0.06] min-h-[4.5rem] sm:min-h-0 flex flex-col justify-center">
+                        <div class="text-lg sm:text-xl font-black text-solarGreen tabular-nums">IP68</div>
+                        <div class="text-[9px] sm:text-[10px] text-white/30 font-bold uppercase tracking-wide sm:tracking-wider mt-1 leading-tight">Rating</div>
                     </div>
                 </div>
 
                 <div class="pt-6 border-t border-white/5">
-                    <a href="/products" class="inline-flex items-center gap-4 text-white font-bold uppercase tracking-[0.2em] group text-xs hover:text-solarGreen transition-colors">
+                    <a href="/products" class="inline-flex items-center gap-4 min-h-[48px] sm:min-h-0 py-2 text-white font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] group text-xs hover:text-solarGreen transition-colors">
                         Technology Reveal <span class="w-10 h-[2px] bg-solarGreen transition-all group-hover:w-20"></span>
                     </a>
                 </div>
             </div>
 
-            <div class="flex justify-center reveal-right">
-                <div id="solar-3d-panel" class="relative w-[280px] h-[460px] preserve-3d cursor-crosshair">
+            <div class="flex justify-center w-full min-w-0 pt-4 lg:pt-0 reveal-right">
+                <div id="solar-3d-panel" class="relative w-full max-w-[280px] h-[280px] sm:h-[340px] lg:h-[460px] preserve-3d cursor-crosshair mx-auto lg:mx-0 shrink-0">
                     <div class="absolute inset-0 bg-gradient-to-b from-[#0a1a2e] to-[#050d18] rounded-[2.5rem] border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.4),0_0_60px_rgba(0,223,130,0.05)] overflow-hidden transition-transform duration-200">
                         <div class="w-full h-full grid grid-cols-4 grid-rows-8 gap-1.5 p-3">
                             @for($i = 0; $i < 32; $i++)
@@ -202,8 +155,8 @@
 
     {{-- ═══════════════ PRODUCTS ═══════════════ --}}
     <section class="py-24 lg:py-32 bg-obsidian relative overflow-hidden border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-stretch md:items-end mb-12 sm:mb-16 gap-6 reveal-up">
                 <div class="max-w-xl">
                     <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-solarGreen/10 border border-solarGreen/20 rounded-full mb-5">
                         <span class="w-1.5 h-1.5 bg-solarGreen rounded-full glow-green"></span>
@@ -256,8 +209,8 @@
 
     {{-- ═══════════════ TESTIMONIALS ═══════════════ --}}
     <section class="py-24 lg:py-32 bg-obsidian relative overflow-hidden border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-stretch md:items-end mb-12 sm:mb-16 gap-6 reveal-up">
                 <div class="max-w-xl text-left">
                     <div class="text-solarGreen font-bold uppercase tracking-[0.3em] text-[11px] mb-3">Market Reputation</div>
                     <h2 class="text-3xl md:text-4xl font-bold font-heading text-white tracking-tighter leading-tight">VOICES OF <br/> <span class="italic text-solarGreen">TRUST.</span></h2>
@@ -289,12 +242,13 @@
         
         <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-solarGreen/5 blur-[100px] rounded-full pointer-events-none"></div>
     </section>
+</main>
 
-    {{-- ═══════════════ FOOTER ═══════════════ --}}
+    {{-- ═══════════════ FOOTER (outside <main> so light-mode text overrides don't apply) ═══════════════ --}}
     <footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden border-t border-white/5">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-solarGreen/30 to-transparent"></div>
         
-        <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 relative z-10">
             <div class="space-y-6">
                 <div class="flex items-center gap-2.5">
                     <div class="p-1.5 bg-solarGreen rounded-xl">
@@ -337,20 +291,14 @@
             </div>
         </div>
         
-        <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[10px] font-medium text-white/15 uppercase tracking-wider text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-white/5 text-[10px] font-medium text-white/15 uppercase tracking-wider text-center pb-[max(0.5rem,env(safe-area-inset-bottom))]">
             © 2026 U.P.R. Solar Green Energy™ | U.P. Refrigeration & Sales Co.
         </div>
     </footer>
-</main>
 
 <style>
     .preserve-3d { transform-style: preserve-3d; perspective: 1500px; }
     #solar-3d-panel { transition: transform 0.4s cubic-bezier(0.1, 0.4, 0.2, 1); }
-    #hero-panel > div { transition: transform 0.3s cubic-bezier(0.1, 0.4, 0.2, 1); }
-
-    .panel-surface {
-        background: linear-gradient(135deg, #0a1628 0%, #071020 50%, #0d1830 100%);
-    }
 
     .nav-pill { position: relative; }
     .nav-pill::after {
@@ -358,44 +306,9 @@
         background: #00DF82; border-radius: 1px; transition: all 0.3s ease; transform: translateX(-50%);
     }
     .nav-pill:hover::after, .nav-pill.text-solarGreen::after { width: 60%; }
-
-    @keyframes orbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    @keyframes orbit-reverse { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
-    .orbit-ring { animation: orbit 25s linear infinite; }
-    .orbit-ring-reverse { animation: orbit-reverse 35s linear infinite; }
-
-    @keyframes scan {
-        0% { top: -2px; opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { top: 100%; opacity: 0; }
-    }
-    .scan-line { animation: scan 4s ease-in-out infinite; }
-
-    @keyframes cell-activate {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 1; }
-    }
-    .solar-cell .cell-glow { animation: cell-activate 3s ease-in-out infinite; }
-    .solar-cell:nth-child(odd) .cell-glow { animation-delay: 0.5s; }
-    .solar-cell:nth-child(3n) .cell-glow { animation-delay: 1s; }
-    .solar-cell:nth-child(4n+1) .cell-glow { animation-delay: 1.5s; }
 </style>
 
 <script>
-    // Hero panel 3D tilt
-    const heroPanel = document.getElementById('hero-panel');
-    if (heroPanel && window.matchMedia('(pointer: fine)').matches) {
-        document.addEventListener('mousemove', (e) => {
-            const rect = heroPanel.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = (e.clientX - cx) / 25;
-            const dy = (e.clientY - cy) / 25;
-            heroPanel.querySelector('div').style.transform = `rotateY(${dx}deg) rotateX(${-dy}deg)`;
-        });
-    }
-
     // Tech section panel
     const panel = document.getElementById('solar-3d-panel');
     if (panel && window.matchMedia('(pointer: fine)').matches) {

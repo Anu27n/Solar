@@ -3,22 +3,16 @@
 @section('content')
 @include('partials.navbar')
 
-<main class="bg-obsidian relative">
-    <!-- SVG Noise Texture Filter -->
-    <svg class="absolute inset-0 w-full h-full opacity-[0.02] pointer-events-none -z-10">
-        <filter id="noiseFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/>
-        </filter>
-        <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
-    </svg>
+<main class="marketing-atmosphere relative">
+@include('partials.marketing-page-atmosphere', [
+    'marketingAtmosphereImage' => 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1920&q=80',
+    'marketingAtmospherePosition' => 'center 48%',
+])
+<div class="relative z-10">
     <!-- Product Hero -->
     <section class="relative py-16 md:py-20 overflow-hidden">
-        <!-- Radial Glow Background -->
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-solarGreen/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="text-left reveal-left space-y-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative">
+            <div class="text-left reveal-left space-y-8 sm:space-y-10">
                 <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full border border-solarGreen/10">
                     <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">Precision Hardware</span>
                 </div>
@@ -33,8 +27,20 @@
                 </p>
             </div>
 
+            <div class="order-3 lg:order-none col-span-full lg:col-span-1 flex justify-center lg:hidden reveal-scale">
+                <div class="relative w-full max-w-sm">
+                    <img src="/assets/images/products/hero-panel.png"
+                         class="w-full h-auto max-h-[240px] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.25)] animate-float"
+                         alt="Premium solar panel">
+                    <div class="absolute -right-1 top-4 p-3 bg-white/[0.08] backdrop-blur-xl border border-white/10 rounded-xl shadow-xl text-right animate-float-slow">
+                        <div class="text-[9px] font-bold uppercase text-solarGreen tracking-widest">Efficiency</div>
+                        <div class="text-lg font-bold text-white tracking-tighter">23.8%</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Floating Asset -->
-            <div class="relative hidden lg:block reveal-right">
+            <div class="relative hidden lg:flex justify-center reveal-right">
                 <div class="relative z-10 group cursor-default">
                     <img src="/assets/images/products/hero-panel.png" 
                          class="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.1)] group-hover:scale-105 transition-transform duration-1000 animate-float" 
@@ -70,24 +76,24 @@
     </style>
 
     <!-- Interactive Category Filter -->
-    <section class="pb-20">
-        <div class="max-w-7xl mx-auto px-6 overflow-x-auto">
-            <div class="flex justify-center gap-4 min-w-max pb-4" id="category-filter-bar">
-                <button onclick="filterProducts('All')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-solarGreen text-deepForest shadow-lg" data-category="All">All</button>
-                <button onclick="filterProducts('Solar Panels')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Solar Panels">Solar Panels</button>
-                <button onclick="filterProducts('Inverters')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Inverters">Inverters</button>
-                <button onclick="filterProducts('Batteries')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Batteries">Batteries</button>
-                <button onclick="filterProducts('Water Heaters')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Water Heaters">Water Heaters</button>
-                <button onclick="filterProducts('Lighting')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Lighting">Lighting</button>
-                <button onclick="filterProducts('Agriculture')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Agriculture">Agriculture</button>
-                <button onclick="filterProducts('Accessories')" class="category-btn px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Accessories">Accessories</button>
+    <section class="marketing-section-bg border-t border-white/[0.06] py-10 sm:py-12 sm:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 overflow-x-auto [-webkit-overflow-scrolling:touch] snap-x snap-mandatory">
+            <div class="flex justify-start sm:justify-center gap-2 sm:gap-3 min-w-min pb-4" id="category-filter-bar">
+                <button type="button" onclick="filterProducts('All')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-solarGreen text-deepForest shadow-lg" data-category="All">All</button>
+                <button type="button" onclick="filterProducts('Solar Panels')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Solar Panels">Solar Panels</button>
+                <button type="button" onclick="filterProducts('Inverters')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Inverters">Inverters</button>
+                <button type="button" onclick="filterProducts('Batteries')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Batteries">Batteries</button>
+                <button type="button" onclick="filterProducts('Water Heaters')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Water Heaters">Water Heaters</button>
+                <button type="button" onclick="filterProducts('Lighting')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Lighting">Lighting</button>
+                <button type="button" onclick="filterProducts('Agriculture')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Agriculture">Agriculture</button>
+                <button type="button" onclick="filterProducts('Accessories')" class="category-btn snap-start shrink-0 px-6 sm:px-8 py-3 min-h-[44px] rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest transition-all bg-white/[0.03] text-white/40 border border-white/[0.06] hover:border-solarGreen/40" data-category="Accessories">Accessories</button>
             </div>
         </div>
     </section>
 
     <!-- Standardized Product Grid -->
-    <section class="pb-20">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children" id="product-grid">
+    <section class="marketing-section-bg border-t border-white/[0.06] py-10 pb-16 sm:pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 stagger-children" id="product-grid">
             @php
                 $products = [
                     [
@@ -184,8 +190,8 @@
     </section>
 
     <!-- Bulk Order CTA -->
-    <section class="pb-20 px-6">
-        <div class="max-w-7xl mx-auto relative rounded-[3rem] p-10 md:p-16 text-center overflow-hidden group border border-white/5 bg-[#0B0F0E] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+    <section class="pb-16 sm:pb-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto relative rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-10 md:p-16 text-center overflow-hidden group border border-white/5 bg-deepForest shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] reveal-up">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,223,130,0.15),transparent_60%)]"></div>
             
             <div class="relative z-10 max-w-2xl mx-auto space-y-10">
@@ -196,8 +202,8 @@
                 <p class="text-base text-white/50 font-medium leading-relaxed max-w-2xl mx-auto">
                     Access engineering-grade architectural estimates tailored for industrial-scale deployment or residential customization.
                 </p>
-                <div class="pt-10">
-                    <a href="/contact" class="inline-flex items-center gap-4 bg-solarGreen text-deepForest px-12 py-6 rounded-[2rem] font-black uppercase tracking-widest text-[11px] shadow-[0_10px_50px_rgba(0,223,130,0.4)] hover:shadow-[0_20px_70px_rgba(0,223,130,0.6)] hover:scale-105 active:scale-95 transition-all duration-500 group/btn">
+                <div class="pt-8 sm:pt-10">
+                    <a href="/contact" class="inline-flex items-center justify-center gap-4 bg-solarGreen text-deepForest w-full sm:w-auto px-8 sm:px-12 py-5 sm:py-6 min-h-[52px] rounded-[2rem] font-black uppercase tracking-widest text-[11px] shadow-[0_10px_50px_rgba(0,223,130,0.4)] hover:shadow-[0_20px_70px_rgba(0,223,130,0.6)] hover:scale-105 active:scale-95 transition-all duration-500 group/btn">
                         Get Custom Quote 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover/btn:translate-x-1"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </a>
@@ -207,10 +213,11 @@
             <div class="absolute bottom-12 right-12 w-32 h-32 border-r border-b border-white/10 opacity-20"></div>
         </div>
     </section>
+</div>
 </main>
 
-<footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<footer class="bg-deepForest py-16 sm:py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div class="space-y-6">
             <div class="flex items-center gap-2.5">
                 <div class="p-1.5 bg-solarGreen rounded-lg shadow-lg">
@@ -241,7 +248,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
         © 2026 U.P.R. Solar Green Energy™
     </div>
 </footer>

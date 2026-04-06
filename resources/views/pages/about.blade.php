@@ -3,17 +3,20 @@
 @section('content')
 @include('partials.navbar')
 
-<main class="bg-obsidian">
+<main class="marketing-atmosphere relative">
+@include('partials.marketing-page-atmosphere', [
+    'marketingAtmosphereImage' => 'https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=1920&q=80',
+    'marketingAtmospherePosition' => 'center 42%',
+])
+<div class="relative z-10">
     <!-- About Hero: Defining the Legacy -->
     <section class="relative py-20 lg:py-28 overflow-hidden">
-        <!-- Dynamic Solar Grid Background -->
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none select-none -z-10">
-            <div class="absolute inset-0 bg-[radial-gradient(#ffffff_1.5px,transparent_1.5px)] [background-size:40px_40px]"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-obsidian via-transparent to-obsidian"></div>
+        <div class="absolute inset-0 opacity-[0.05] dark:opacity-[0.065] pointer-events-none select-none">
+            <div class="absolute inset-0 bg-[radial-gradient(#00DF82_1px,transparent_1px)] [background-size:44px_44px]"></div>
         </div>
         
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-12 reveal-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
+            <div class="space-y-10 sm:space-y-12 reveal-up">
                 <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full">
                     <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">ESTABLISHED 2013</span>
                 </div>
@@ -41,12 +44,12 @@
                 </div>
             </div>
 
-            <div class="relative group">
+            <div class="relative group reveal-scale max-w-lg mx-auto lg:max-w-none">
                 <div class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative border-8 border-white/10">
                     <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Solar Engineering">
                     <div class="absolute inset-0 bg-gradient-to-t from-deepForest/40 to-transparent"></div>
                     
-                    <div class="absolute bottom-8 left-8 right-8 p-8 bg-white/[0.08] backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl">
+                    <div class="lm-surface-dark absolute bottom-8 left-8 right-8 p-8 bg-white/[0.08] backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl">
                         <div class="text-[11px] font-bold uppercase tracking-widest text-solarGreen mb-4">Our Mission</div>
                         <p class="text-base font-bold text-white leading-snug tracking-tight">"To democratize clean energy by providing industrial-grade engineering to every household in India."</p>
                     </div>
@@ -61,7 +64,7 @@
     <!-- Founder's Vision: The Human Core -->
     <section class="py-20 lg:py-28 bg-deepForest relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,223,130,0.05),transparent_50%)]"></div>
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
             <div class="space-y-12 reveal-left">
                 <div class="flex items-center gap-4">
                     <span class="w-12 h-[1px] bg-solarGreen"></span>
@@ -105,9 +108,9 @@
     </section>
 
     <!-- Company Overview: Operational History -->
-    <section class="py-20 lg:py-28 bg-obsidian relative overflow-hidden border-t border-white/[0.06]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-16 items-start">
+    <section class="py-20 lg:py-28 marketing-section-bg relative overflow-hidden border-t border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                 <div class="space-y-12 reveal-left">
                     <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full">
                         <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">Established 2018</span>
@@ -149,8 +152,8 @@
     </section>
 
     <!-- FAQ Section: Clarity in Engineering -->
-    <section class="py-20 lg:py-28 bg-obsidian relative overflow-hidden border-t border-white/[0.06]">
-        <div class="max-w-3xl mx-auto px-6">
+    <section class="py-20 lg:py-28 marketing-section-bg relative overflow-hidden border-t border-white/[0.06]">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16 reveal-up">
                 <div class="text-solarGreen font-bold uppercase tracking-[0.4em] text-[11px] mb-4">Support Hub</div>
                 <h2 class="text-3xl md:text-4xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic text-center">Frequently Asked <br/> <span class="text-solarGreen">Questions.</span></h2>
@@ -210,10 +213,10 @@
     </script>
 
     <!-- Accreditation Wall: High Contrast -->
-    <section class="py-20 lg:py-28 bg-deepForest relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h3 class="text-[11px] font-bold uppercase tracking-[0.8em] text-solarGreen mb-16 animate-pulse">GLOBAL ACCREDITATIONS</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700 stagger-children">
+    <section class="py-16 sm:py-20 lg:py-28 bg-deepForest relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center reveal-up">
+            <h3 class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] sm:tracking-[0.8em] text-solarGreen mb-12 sm:mb-16 animate-pulse">GLOBAL ACCREDITATIONS</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700 stagger-children">
                 <div class="text-white font-black text-2xl tracking-tighter">MNRE<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">GOVT OF INDIA</span></div>
                 <div class="text-white font-black text-2xl tracking-tighter">ISO<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">9001:2015</span></div>
                 <div class="text-white font-black text-2xl tracking-tighter">NEDA<br/><span class="text-[8px] tracking-[0.4em] text-solarGreen">LICENSED</span></div>
@@ -221,10 +224,11 @@
             </div>
         </div>
     </section>
+</div>
 </main>
 
-<footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<footer class="bg-deepForest py-16 sm:py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div class="space-y-6">
             <div class="flex items-center gap-2.5">
                 <div class="p-1.5 bg-solarGreen rounded-lg shadow-lg">
@@ -256,7 +260,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
         © 2026 U.P.R. Solar Green Energy™ | U.P. Refrigeration & Sales Co.
     </div>
 </footer>

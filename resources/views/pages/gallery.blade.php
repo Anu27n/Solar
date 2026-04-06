@@ -3,10 +3,15 @@
 @section('content')
 @include('partials.navbar')
 
-<main class="bg-obsidian">
+<main class="marketing-atmosphere relative">
+@include('partials.marketing-page-atmosphere', [
+    'marketingAtmosphereImage' => 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?auto=format&fit=crop&w=1920&q=80',
+    'marketingAtmospherePosition' => 'center 44%',
+])
+<div class="relative z-10">
     <!-- Gallery Hero: Visual Archive -->
-    <section class="relative py-20 lg:py-28 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center reveal-up">
+    <section class="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center reveal-up">
             <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-solarGreen/10 rounded-full mb-10">
                 <span class="text-[11px] uppercase font-bold tracking-[0.3em] text-solarGreen">Field Archive</span>
             </div>
@@ -22,36 +27,36 @@
     </section>
 
     <!-- Immersive Mosaic Grid -->
-    <section class="pb-20 px-6">
-        <div class="max-w-7xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 stagger-children">
+    <section class="pb-16 sm:pb-20 px-4 sm:px-6 marketing-section-bg border-t border-white/[0.06] pt-10 sm:pt-12">
+        <div class="max-w-7xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 sm:gap-8 space-y-6 sm:space-y-8 stagger-children">
             @php
                 $images = [
                     ['url' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80', 'title' => 'Rooftop Array', 'loc' => 'Kanpur', 'type' => 'Residential'],
                     ['url' => 'https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?auto=format&fit=crop&w=1200&q=80', 'title' => 'Industrial Plant', 'loc' => 'Unnao', 'type' => 'Commercial'],
                     ['url' => 'https://images.unsplash.com/photo-1594818379496-da1e345b0ded?auto=format&fit=crop&w=1200&q=80', 'title' => 'Educational Hub', 'loc' => 'Lucknow', 'type' => 'Institutional'],
-                    ['url' => 'https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=1200&q=80', 'title' => 'Cold Storage', 'loc' => 'Kalyanpur', 'type' => 'Industrial'],
+                    ['url' => asset('assets/images/services/commercial.png'), 'title' => 'Cold Storage', 'loc' => 'Kalyanpur', 'type' => 'Industrial'],
                     ['url' => 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80', 'title' => 'Smart Inverters', 'loc' => 'Technical Lab', 'type' => 'Grid Tech'],
                     ['url' => 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80', 'title' => 'Bifacial Units', 'loc' => 'Panki', 'type' => 'Bifacial'],
-                    ['url' => 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e2?auto=format&fit=crop&w=1200&q=80', 'title' => 'Water Heating', 'loc' => 'Barra', 'type' => 'Thermal'],
-                    ['url' => 'https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=1200&q=80', 'title' => 'Agriculture Pumps', 'loc' => 'Bilhaur', 'type' => 'Agri-Tech'],
+                    ['url' => asset('assets/images/products/water-heater.png'), 'title' => 'Water Heating', 'loc' => 'Barra', 'type' => 'Thermal'],
+                    ['url' => asset('assets/images/products/submersible-pump.png'), 'title' => 'Agriculture Pumps', 'loc' => 'Bilhaur', 'type' => 'Agri-Tech'],
                     ['url' => 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80', 'title' => 'Maintenance', 'loc' => 'Site Visit', 'type' => 'Service']
                 ];
             @endphp
 
             @foreach($images as $img)
-                <div class="break-inside-avoid relative rounded-[2rem] overflow-hidden group shadow-xl border border-white/[0.06] bg-white/[0.03] transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl hover-lift">
+                <div class="gallery-mosaic-tile break-inside-avoid relative rounded-[2rem] overflow-hidden group shadow-xl border border-white/[0.06] bg-white/[0.03] transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl hover-lift">
                     <img src="{{ $img['url'] }}" class="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ $img['title'] }}">
                     
                     <!-- Overlay HUB -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-deepForest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="gallery-tile-scrim absolute inset-0 bg-gradient-to-t from-deepForest/85 via-deepForest/20 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     <!-- Glass Technical Tag -->
-                    <div class="absolute top-6 left-6 px-4 py-2 bg-white/20 backdrop-blur-md border border-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 translate-y-4 group-hover:translate-y-0 text-[10px] font-bold uppercase tracking-widest text-white shadow-xl">
+                    <div class="gallery-tile-glass lm-surface-dark absolute top-4 left-4 sm:top-6 sm:left-6 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-md border border-white/20 rounded-xl opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 sm:delay-100 translate-y-0 sm:translate-y-4 sm:group-hover:translate-y-0 text-[10px] font-bold uppercase tracking-widest text-white shadow-xl">
                         {{ $img['type'] }}
                     </div>
 
                     <!-- Information Cluster -->
-                    <div class="absolute bottom-8 left-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 translate-y-6 group-hover:translate-y-0">
+                    <div class="gallery-tile-caption lm-surface-dark absolute bottom-6 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-8 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 sm:delay-200 translate-y-0 sm:translate-y-6 sm:group-hover:translate-y-0">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="w-8 h-[2px] bg-solarGreen rounded-full"></span>
                             <span class="text-[10px] font-bold text-solarGreen uppercase tracking-[0.3em]">{{ $img['loc'] }}</span>
@@ -64,9 +69,9 @@
     </section>
 
     <!-- Cinematic Final Statement -->
-    <section class="py-20 lg:py-28 bg-deepForest text-center relative overflow-hidden">
+    <section class="py-16 sm:py-20 lg:py-28 bg-deepForest text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,223,130,0.1),transparent_60%)]"></div>
-        <div class="relative z-10 max-w-4xl mx-auto px-6 space-y-10 reveal-up">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 space-y-8 sm:space-y-10 reveal-up">
             <h2 class="text-3xl md:text-4xl font-bold font-heading text-white tracking-tighter leading-tight uppercase italic">
                 Witness the <br/>
                 <span class="text-solarGreen">Revolution.</span>
@@ -81,10 +86,11 @@
             </div>
         </div>
     </section>
+</div>
 </main>
 
-<footer class="bg-deepForest py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
-    <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+<footer class="bg-deepForest py-16 sm:py-20 lg:py-24 relative overflow-hidden text-white border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
         <div class="space-y-6">
             <div class="flex items-center gap-2.5">
                 <div class="p-1.5 bg-solarGreen rounded-lg shadow-lg">
@@ -116,7 +122,7 @@
             </div>
         </div>
     </div>
-    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pt-8 border-t border-white/5 text-[11px] font-medium text-white/20 uppercase tracking-wider text-center">
         © 2026 U.P.R. Solar Green Energy™ | U.P. Refrigeration & Sales Co.
     </div>
 </footer>
