@@ -3,9 +3,9 @@
 @section('content')
 @include('partials.navbar')
 
-<main>
+<main class="-mt-24 sm:-mt-28">
     {{-- ═══════════════ HERO (sky / solar photo — 3D panel removed per client) ═══════════════ --}}
-    <section class="relative min-h-screen min-h-[100dvh] flex items-center overflow-hidden bg-obsidian">
+    <section class="relative min-h-screen min-h-[100dvh] pt-24 sm:pt-28 flex items-center overflow-hidden bg-obsidian">
         <div class="absolute inset-0 hero-photo-layer" aria-hidden="true"></div>
         <div class="absolute inset-0 hero-photo-overlay" aria-hidden="true"></div>
         <div class="absolute inset-0 opacity-[0.035] dark:opacity-[0.04]" style="background-image: linear-gradient(rgba(0,223,130,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(0,223,130,0.35) 1px, transparent 1px); background-size: 56px 56px;"></div>

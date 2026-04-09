@@ -103,12 +103,16 @@
             background-image: url('/assets/images/hero-solar-sky.jpg');
             background-size: cover;
             background-position: center 35%;
+            animation: bg-zoom-in 18s ease-out infinite;
+            transform-origin: center center;
         }
         /* Inner marketing pages: photo URL set inline per page */
         .marketing-atmosphere-photo {
             background-color: #0b1a2e;
             background-size: cover;
             background-repeat: no-repeat;
+            animation: bg-zoom-in 22s ease-out infinite;
+            transform-origin: center center;
         }
         .dark .hero-photo-overlay {
             background: linear-gradient(105deg, rgba(14,14,14,0.94) 0%, rgba(14,14,14,0.82) 42%, rgba(14,14,14,0.45) 72%, rgba(14,14,14,0.25) 100%);
@@ -259,7 +263,10 @@
         html:not(.dark) .loader-bar { background: rgba(0,0,0,0.06); }
 
         /* Cursor glow in light mode */
-        html:not(.dark) .cursor-glow { background: radial-gradient(circle, rgba(0,223,130,0.04) 0%, transparent 70%); }
+        html:not(.dark) .cursor-glow {
+            background: radial-gradient(circle, rgba(0,223,130,0.12) 0%, rgba(0,223,130,0.06) 36%, transparent 72%);
+            mix-blend-mode: multiply;
+        }
 
         /* Theme toggle for marketing site */
         .site-theme-toggle {
@@ -346,6 +353,8 @@
                 transform: none !important;
                 transition: none !important;
             }
+            .hero-photo-layer,
+            .marketing-atmosphere-photo { animation: none !important; }
             .animate-float, .animate-float-slow, .animate-pulse, .animate-pulse-glow, .animate-shimmer,
             .orbit-ring, .orbit-ring-reverse, .scan-line, .solar-cell .cell-glow,
             .text-shimmer, .type-cursor { animation: none !important; }
@@ -368,6 +377,16 @@
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
+        }
+        @keyframes bg-zoom-in {
+            0% {
+                background-size: 100%;
+                background-position: center 35%;
+            }
+            100% {
+                background-size: 114%;
+                background-position: center 40%;
+            }
         }
         .animate-float { animation: float 5s ease-in-out infinite; }
         .animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
