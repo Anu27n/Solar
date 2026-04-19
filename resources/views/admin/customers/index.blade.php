@@ -7,6 +7,13 @@
     @include('admin.partials.sidebar')
 @endsection
 
+@section('header-actions')
+    <a href="{{ route('admin.customers.create') }}" class="inline-flex items-center gap-2 rounded-xl bg-solar-500 px-4 py-2.5 text-sm font-semibold text-dark-900 shadow-sm hover:bg-solar-400 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+        Add Customer
+    </a>
+@endsection
+
 @section('content')
     @php
         $statusBadge = function (string $status): string {

@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Create Quotation')
-@section('page-title', 'Create Quotation')
-@section('page-subtitle', 'Pick a company, add line items, generate a PDF')
+@section('title', 'Edit Quotation')
+@section('page-title', 'Edit Quotation #' . $quotation->reference_number)
+@section('page-subtitle', 'Update line items, terms or customer')
 
 @section('sidebar')
     @include('admin.partials.sidebar')

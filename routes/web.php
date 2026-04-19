@@ -51,6 +51,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
 
     // Customer management
     Route::get('/customers', [App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('customers.index');
+    Route::get('/customers/create', [App\Http\Controllers\Admin\CustomerController::class, 'create'])->name('customers.create');
+    Route::post('/customers', [App\Http\Controllers\Admin\CustomerController::class, 'store'])->name('customers.store');
     Route::get('/customers/{customer}', [App\Http\Controllers\Admin\CustomerController::class, 'show'])->name('customers.show');
     Route::post('/kyc/{kyc}/approve', [App\Http\Controllers\Admin\CustomerController::class, 'approveKyc'])->name('kyc.approve');
     Route::post('/kyc/{kyc}/reject', [App\Http\Controllers\Admin\CustomerController::class, 'rejectKyc'])->name('kyc.reject');
@@ -105,7 +107,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::get('/quotations', [App\Http\Controllers\Admin\QuotationController::class, 'index'])->name('quotations.index');
     Route::get('/quotations/create', [App\Http\Controllers\Admin\QuotationController::class, 'create'])->name('quotations.create');
     Route::post('/quotations', [App\Http\Controllers\Admin\QuotationController::class, 'store'])->name('quotations.store');
+    Route::get('/quotations/{quotation}', [App\Http\Controllers\Admin\QuotationController::class, 'show'])->name('quotations.show');
+    Route::get('/quotations/{quotation}/edit', [App\Http\Controllers\Admin\QuotationController::class, 'edit'])->name('quotations.edit');
+    Route::put('/quotations/{quotation}', [App\Http\Controllers\Admin\QuotationController::class, 'update'])->name('quotations.update');
+    Route::get('/quotations/{quotation}/pdf', [App\Http\Controllers\Admin\QuotationController::class, 'pdf'])->name('quotations.pdf');
     Route::post('/quotations/{quotation}/send', [App\Http\Controllers\Admin\QuotationController::class, 'send'])->name('quotations.send');
+
+    // Company Profiles (letterhead, bank, defaults)
+    Route::get('/company-profiles', [App\Http\Controllers\Admin\CompanyProfileController::class, 'index'])->name('company-profiles.index');
+    Route::get('/company-profiles/{company_profile}/edit', [App\Http\Controllers\Admin\CompanyProfileController::class, 'edit'])->name('company-profiles.edit');
+    Route::put('/company-profiles/{company_profile}', [App\Http\Controllers\Admin\CompanyProfileController::class, 'update'])->name('company-profiles.update');
 
     // Commissions
     Route::get('/commissions', [App\Http\Controllers\Admin\CommissionController::class, 'index'])->name('commissions.index');
@@ -127,6 +138,11 @@ Route::prefix('partner')->name('partner.')->middleware(['auth', 'role:channel_pa
     Route::post('/customers', [App\Http\Controllers\Partner\CustomerController::class, 'store'])->name('customers.store');
     Route::get('/customers/{customer}', [App\Http\Controllers\Partner\CustomerController::class, 'show'])->name('customers.show');
     Route::post('/customers/{customer}/kyc', [App\Http\Controllers\Partner\CustomerController::class, 'uploadKyc'])->name('customers.kyc');
+
+    // Quotations (read-only)
+    Route::get('/quotations', [App\Http\Controllers\Partner\QuotationController::class, 'index'])->name('quotations.index');
+    Route::get('/quotations/{quotation}', [App\Http\Controllers\Partner\QuotationController::class, 'show'])->name('quotations.show');
+    Route::get('/quotations/{quotation}/pdf', [App\Http\Controllers\Partner\QuotationController::class, 'pdf'])->name('quotations.pdf');
 
     // Commissions
     Route::get('/commissions', [App\Http\Controllers\Partner\CommissionController::class, 'index'])->name('commissions.index');
