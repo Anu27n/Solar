@@ -12,6 +12,9 @@
         <div class="absolute top-20 left-1/4 w-[420px] h-[420px] bg-solarGreen/5 rounded-full blur-[140px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 py-20 sm:py-24 lg:py-28 items-center relative z-10">
+            <p class="col-span-full text-center text-base sm:text-lg md:text-xl lg:text-2xl font-black font-heading uppercase tracking-[0.08em] sm:tracking-[0.11em] md:tracking-[0.13em] leading-snug text-shimmer -mt-2 sm:-mt-4 mb-3 sm:mb-5 lg:mb-6">
+                UPR SOLAR &amp; UP REFRIGERATION AND SALES CO
+            </p>
             <div class="space-y-8 reveal-up">
                 <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-solarGreen/10 border border-solarGreen/25 rounded-full">
                     <span class="w-2 h-2 bg-solarGreen rounded-full animate-pulse shadow-[0_0_8px_rgba(0,223,130,0.6)]"></span>
