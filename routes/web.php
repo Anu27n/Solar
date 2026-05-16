@@ -18,6 +18,9 @@ Route::get('/contact', fn() => view('pages.contact'))->name('contact');
 Route::get('/solar-products', [SolarProductController::class, 'index'])->name('solar-products.index');
 Route::get('/solar-products/{id}', [SolarProductController::class, 'show'])->name('solar-products.show');
 
+// Public item list by company (UPK / UPR Solar / Refrigeration)
+Route::get('/catalog', [App\Http\Controllers\CatalogController::class, 'index'])->name('catalog.index');
+
 // Unified portal entry: guests go to login, authenticated users go to their dashboard
 Route::get('/portal', function () {
     if (!auth()->check()) {
@@ -87,6 +90,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::get('/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('users.create');
     Route::post('/users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{user}/edit', [App\Http\Controllers\Admin\UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('users.update');
     Route::post('/users/{user}/toggle', [App\Http\Controllers\Admin\UserController::class, 'toggleActive'])->name('users.toggle');
 
     // Attendance
@@ -112,6 +117,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->grou
     Route::put('/quotations/{quotation}', [App\Http\Controllers\Admin\QuotationController::class, 'update'])->name('quotations.update');
     Route::get('/quotations/{quotation}/pdf', [App\Http\Controllers\Admin\QuotationController::class, 'pdf'])->name('quotations.pdf');
     Route::post('/quotations/{quotation}/send', [App\Http\Controllers\Admin\QuotationController::class, 'send'])->name('quotations.send');
+
+    // Stationery — ID & visiting card PDFs
+    Route::get('/stationery', [App\Http\Controllers\Admin\StationeryController::class, 'index'])->name('stationery.index');
+    Route::get('/stationery/users/{user}/id-card', [App\Http\Controllers\Admin\StationeryController::class, 'idCard'])->name('stationery.id-card');
+    Route::get('/stationery/users/{user}/visiting-card', [App\Http\Controllers\Admin\StationeryController::class, 'visitingCard'])->name('stationery.visiting-card');
+
+    // Catalog & inventory (per company)
+    Route::resource('catalog-items', App\Http\Controllers\Admin\CatalogItemController::class)->except(['show']);
 
     // Company Profiles (letterhead, bank, defaults)
     Route::get('/company-profiles', [App\Http\Controllers\Admin\CompanyProfileController::class, 'index'])->name('company-profiles.index');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CompanyProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyProfileController extends Controller
 {
@@ -23,6 +24,8 @@ class CompanyProfileController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string|max:255',
+            'logo' => 'nullable|image|max:4096',
+            'remove_logo' => 'nullable|boolean',
             'tagline' => 'nullable|string|max:500',
             'address_office' => 'required|string',
             'address_factory' => 'nullable|string',
@@ -57,6 +60,18 @@ class CompanyProfileController extends Controller
 
         $data['phones'] = array_values(array_filter(array_map('trim', preg_split('/[\r\n,]+/', (string) $request->input('phones', '')))));
         $data['is_active'] = $request->boolean('is_active');
+
+        unset($data['logo'], $data['remove_logo']);
+
+        if ($request->hasFile('logo')) {
+            if ($companyProfile->logo_path) {
+                Storage::disk('public')->delete($companyProfile->logo_path);
+            }
+            $data['logo_path'] = $request->file('logo')->store('company-logos', 'public');
+        } elseif ($request->boolean('remove_logo') && $companyProfile->logo_path) {
+            Storage::disk('public')->delete($companyProfile->logo_path);
+            $data['logo_path'] = null;
+        }
 
         $companyProfile->update($data);
 

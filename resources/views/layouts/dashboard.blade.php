@@ -231,6 +231,18 @@
                     </div>
                 @endif
 
+                @if(session('error'))
+                    <div class="mb-6 p-3.5 bg-red-500/10 border border-red-500/20 rounded-xl text-red-600 dark:text-red-400 text-sm font-medium">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @if(session('info'))
+                    <div class="mb-6 p-3.5 bg-slate-500/10 border border-slate-500/20 rounded-xl t-secondary text-sm">
+                        {{ session('info') }}
+                    </div>
+                @endif
+
                 @if($errors->any())
                     <div class="mb-6 p-3.5 bg-red-500/10 border border-red-500/20 rounded-xl text-red-600 dark:text-red-400 text-sm animate-fade-in">
                         <ul class="list-disc pl-4 space-y-1">

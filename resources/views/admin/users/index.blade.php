@@ -49,6 +49,7 @@
                 <thead>
                     <tr class="border-b border-subtle text-left text-[10px] font-semibold t-faint uppercase tracking-widest">
                         <th class="px-6 py-4">Name</th>
+                        <th class="px-6 py-4">Designation</th>
                         <th class="px-6 py-4">Email</th>
                         <th class="px-6 py-4">Phone</th>
                         <th class="px-6 py-4">Role</th>
@@ -60,6 +61,7 @@
                     @forelse($users as $user)
                         <tr class="hover:bg-[var(--bg-card-hover)] transition-colors">
                             <td class="px-6 py-4 font-medium t-primary">{{ $user->name }}</td>
+                            <td class="px-6 py-4 t-secondary text-xs">{{ $user->designation ?: '—' }}</td>
                             <td class="px-6 py-4 t-secondary">{{ $user->email }}</td>
                             <td class="px-6 py-4 t-secondary">{{ $user->phone ?: '—' }}</td>
                             <td class="px-6 py-4">
@@ -82,7 +84,10 @@
                                     <span class="inline-flex rounded-lg bg-white/5 px-2.5 py-1 text-xs font-semibold t-muted">Inactive</span>
                                 @endif
                             </td>
-                            <td class="px-6 py-4 text-right">
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <a href="{{ route('admin.users.edit', $user) }}" class="inline-flex rounded-lg bg-solar-500/15 px-3 py-1.5 text-xs font-semibold text-solar-600 dark:text-solar-400 transition hover:bg-solar-500/25">
+                                    Edit
+                                </a>
                                 <form method="POST" action="{{ route('admin.users.toggle', $user) }}" class="inline">
                                     @csrf
                                     <button type="submit" class="inline-flex rounded-lg border border-theme bg-white/5 px-3 py-1.5 text-xs font-semibold t-secondary transition hover:bg-white/10">
@@ -93,7 +98,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-6 py-12 text-center t-faint">No users found.</td>
+                            <td colspan="7" class="px-6 py-12 text-center t-faint">No users found.</td>
                         </tr>
                     @endforelse
                 </tbody>

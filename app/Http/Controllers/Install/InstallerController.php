@@ -101,6 +101,13 @@ final class InstallerController extends Controller
             return $response;
         }
 
+        // Empty strings fail `email` validation and confuse optional mail fields — treat as unset.
+        foreach (['mail_mailer', 'mail_host', 'mail_port', 'mail_username', 'mail_password', 'mail_from_address', 'mail_from_name'] as $key) {
+            if ($request->input($key) === '') {
+                $request->merge([$key => null]);
+            }
+        }
+
         $validated = $request->validate([
             'app_name' => ['required', 'string', 'max:128'],
             'app_url' => ['required', 'url', 'max:255'],
@@ -147,9 +154,10 @@ final class InstallerController extends Controller
             'DB_DATABASE' => (string) $db['db_database'],
             'DB_USERNAME' => (string) $db['db_username'],
             'DB_PASSWORD' => (string) ($db['db_password'] ?? ''),
-            'SESSION_DRIVER' => 'database',
-            'CACHE_STORE' => 'database',
-            'QUEUE_CONNECTION' => 'database',
+            // File-based session/cache until migrations finish (database drivers need `sessions` / cache tables).
+            'SESSION_DRIVER' => 'file',
+            'CACHE_STORE' => 'file',
+            'QUEUE_CONNECTION' => 'sync',
         ];
 
         if (filled($validated['mail_mailer'] ?? null)) {
@@ -214,17 +222,42 @@ final class InstallerController extends Controller
             return back()->withErrors(['migrate' => 'Migration failed: '.$e->getMessage()]);
         }
 
-        $seedLog = '';
+        $companySeedLog = '';
+        try {
+            Artisan::call('db:seed', [
+                '--class' => 'Database\\Seeders\\CompanyProfileSeeder',
+                '--force' => true,
+            ]);
+            $companySeedLog = Artisan::output();
+        } catch (Throwable $e) {
+            return back()->withErrors([
+                'migrate' => 'Migrations completed, but company profiles could not be seeded: '.$e->getMessage(),
+            ]);
+        }
+
+        try {
+            Artisan::call('db:seed', [
+                '--class' => 'Database\\Seeders\\CatalogItemSeeder',
+                '--force' => true,
+            ]);
+            $companySeedLog .= "\n".Artisan::output();
+        } catch (Throwable $e) {
+            return back()->withErrors([
+                'migrate' => 'Migrations completed, but catalog items could not be seeded: '.$e->getMessage(),
+            ]);
+        }
+
+        $seedLog = trim($companySeedLog);
         if ($request->boolean('seed_packages')) {
             try {
                 Artisan::call('db:seed', [
                     '--class' => 'Database\\Seeders\\PackageSeeder',
                     '--force' => true,
                 ]);
-                $seedLog = Artisan::output();
+                $seedLog .= "\n".Artisan::output();
             } catch (Throwable $e) {
                 return back()->withErrors([
-                    'migrate' => 'Migrations completed, but seeding failed: '.$e->getMessage(),
+                    'migrate' => 'Migrations completed, but package seeding failed: '.$e->getMessage(),
                 ]);
             }
         }
@@ -291,6 +324,8 @@ final class InstallerController extends Controller
 
         File::put(Installer::lockPath(), $payload);
 
+        $this->enableProductionSessionDriversInEnv();
+
         $request->session()->forget([
             'installer.requirements_ok',
             'installer.db',
@@ -352,6 +387,26 @@ final class InstallerController extends Controller
                 'detail' => $exampleOk ? 'OK' : 'Missing .env.example',
             ]],
         );
+    }
+
+    /**
+     * After install, switch to database-backed session/cache (tables exist after migrate).
+     */
+    private function enableProductionSessionDriversInEnv(): void
+    {
+        $path = base_path('.env');
+        if (! is_readable($path) || ! is_writable($path)) {
+            return;
+        }
+
+        $content = (string) file_get_contents($path);
+        $updated = EnvironmentWriter::mergeIntoExample($content, [
+            'SESSION_DRIVER' => 'database',
+            'CACHE_STORE' => 'database',
+            'QUEUE_CONNECTION' => 'database',
+        ]);
+
+        File::put($path, $updated);
     }
 
     private function guardPreviousStep(Request $request, string $sessionKey, ?string $route): ?RedirectResponse

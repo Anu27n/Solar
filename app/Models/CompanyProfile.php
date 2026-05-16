@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class CompanyProfile extends Model
 {
     protected $fillable = [
-        'code', 'name', 'tagline',
+        'code', 'name', 'logo_path', 'tagline',
         'address_office', 'address_factory', 'city', 'state', 'pincode',
         'gstin', 'phones', 'email', 'website',
         'bank_name', 'bank_branch', 'bank_ac_no', 'bank_ifsc', 'bank_pin',
@@ -36,6 +36,11 @@ class CompanyProfile extends Model
     public function quotations(): HasMany
     {
         return $this->hasMany(Quotation::class);
+    }
+
+    public function catalogItems(): HasMany
+    {
+        return $this->hasMany(CatalogItem::class);
     }
 
     public function phonesList(): string

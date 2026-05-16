@@ -8,7 +8,7 @@
         </a>
         
         <div class="hidden md:flex items-center gap-1">
-            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
+            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Catalog' => '/catalog', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
                 @php $isActive = ($link === '/' && Request::is('/')) || ($link !== '/' && Request::is(trim($link, '/').'*')); @endphp
                 <a href="{{ $link }}" class="nav-pill px-3.5 py-2 rounded-lg text-[11px] font-bold uppercase tracking-[0.12em] {{ $isActive ? 'text-solarGreen bg-solarGreen/10' : 'text-white/50' }} hover:text-solarGreen hover:bg-solarGreen/5 transition-all duration-300">{{ $label }}</a>
             @endforeach
@@ -30,7 +30,7 @@
     </div>
     <div id="mobile-menu" class="mobile-menu md:hidden mt-2 glassmorphism rounded-2xl shadow-2xl mx-auto max-w-7xl overflow-hidden overscroll-contain">
         <div class="p-3 sm:p-4 flex flex-col gap-0.5 max-h-[inherit] overflow-y-auto">
-            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
+            @foreach(['Home' => '/', 'About' => '/about', 'Products' => '/products', 'Catalog' => '/catalog', 'Services' => '/services', 'Gallery' => '/gallery', 'Projects' => '/projects', 'Contact' => '/contact'] as $label => $link)
                 <a href="{{ $link }}" class="px-4 py-3.5 min-h-[48px] flex items-center text-sm font-bold text-white/60 hover:text-solarGreen hover:bg-solarGreen/5 rounded-xl transition-all active:scale-[0.99]">{{ $label }}</a>
             @endforeach
             <a href="/contact" class="mx-1 mt-1 px-4 py-3.5 min-h-[48px] flex items-center justify-center bg-solarGreen text-deepForest font-bold rounded-xl text-sm uppercase tracking-wider shadow-lg shadow-solarGreen/25">Get Quote</a>

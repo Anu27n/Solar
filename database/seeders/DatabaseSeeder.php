@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123'),
             'role' => 'admin',
             'phone' => '+91-9412452844',
+            'designation' => 'Administrator',
             'city' => 'Kanpur',
             'state' => 'Uttar Pradesh',
         ]);
@@ -29,6 +30,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('partner123'),
             'role' => 'channel_partner',
             'phone' => '+91-9336852500',
+            'designation' => 'Channel Partner',
             'city' => 'Kanpur',
             'state' => 'Uttar Pradesh',
         ]);
@@ -39,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('employee123'),
             'role' => 'employee',
             'phone' => '+91-9000000001',
+            'designation' => 'Site Engineer',
             'city' => 'Kanpur',
             'state' => 'Uttar Pradesh',
         ]);
@@ -54,5 +57,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(PackageSeeder::class);
+        $this->call(CompanyProfileSeeder::class);
+        $this->call(CatalogItemSeeder::class);
     }
 }
