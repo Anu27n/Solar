@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Run migrations</h1>
-    <p class="lead">This creates all database tables. You can optionally load the default product packages (recommended for new sites).</p>
+    <p class="lead">This creates all database tables, seeds the three company letterheads, and sample catalog items for the public product list. You can optionally load the default rooftop / commercial packages (recommended for new sites).</p>
 
     @if(!empty($lastLog))
         <pre class="log">{{ $lastLog }}</pre>

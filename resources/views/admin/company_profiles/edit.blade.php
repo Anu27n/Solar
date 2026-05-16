@@ -9,11 +9,26 @@
 
 @section('content')
     <div class="max-w-4xl">
-        <form method="POST" action="{{ route('admin.company-profiles.update', $profile) }}" class="space-y-6">
+        <form method="POST" action="{{ route('admin.company-profiles.update', $profile) }}" enctype="multipart/form-data" class="space-y-6">
             @csrf
             @method('PUT')
 
             <div class="glass rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-medium t-muted mb-1.5">Logo (ID / visiting cards, optional)</label>
+                    @if($profile->logo_path)
+                        <div class="mb-2 flex items-center gap-4">
+                            <img src="{{ asset('storage/'.$profile->logo_path) }}" alt="" class="h-14 w-auto max-w-[200px] object-contain rounded-lg border border-theme bg-white p-1">
+                            <label class="inline-flex items-center gap-2 text-xs t-secondary cursor-pointer">
+                                <input type="checkbox" name="remove_logo" value="1" {{ old('remove_logo') ? 'checked' : '' }}>
+                                Remove current logo
+                            </label>
+                        </div>
+                    @endif
+                    <input type="file" name="logo" accept="image/jpeg,image/png,image/webp,image/gif"
+                        class="block w-full text-sm t-secondary file:mr-3 file:rounded-lg file:border-0 file:bg-solar-500 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-dark-900">
+                    <p class="mt-1 text-[11px] t-faint">PNG or JPG, max 4 MB. Shown on PDF cards when set.</p>
+                </div>
                 <div class="sm:col-span-2">
                     <label class="block text-xs font-medium t-muted mb-1.5">Company name</label>
                     <input type="text" name="name" value="{{ old('name', $profile->name) }}" required class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">

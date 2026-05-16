@@ -9,6 +9,14 @@
 @endsection
 
 @section('content')
+    @if($profiles->isEmpty())
+        <div class="glass rounded-2xl p-8 text-center max-w-lg mx-auto">
+            <p class="text-sm font-semibold t-primary">No company profiles yet</p>
+            <p class="text-xs t-muted mt-2">The three letterheads (UPK Electrical, UPR Solar, UP Refrigeration) are created by the database seeder. On the server, run from the project folder:</p>
+            <pre class="mt-4 text-left text-[11px] t-secondary bg-input rounded-xl p-4 border border-theme overflow-x-auto">php artisan db:seed --class=Database\Seeders\CompanyProfileSeeder</pre>
+            <p class="text-[11px] t-faint mt-3">Or run <code class="font-mono">php artisan db:seed</code> if you have not seeded yet. The web installer also seeds company profiles automatically after migrations.</p>
+        </div>
+    @endif
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         @foreach($profiles as $p)
             <div class="glass rounded-2xl p-5 flex flex-col">

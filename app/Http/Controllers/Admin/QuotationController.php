@@ -37,6 +37,12 @@ class QuotationController extends Controller
         $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
         $selectedCustomer = $request->customer_id ? Customer::find($request->customer_id) : null;
 
+        if ($companies->isEmpty()) {
+            return redirect()
+                ->route('admin.company-profiles.index')
+                ->with('error', 'No company letterheads are set up yet. Run: php artisan db:seed --class=Database\\Seeders\\CompanyProfileSeeder (or full db:seed), then refresh this page.');
+        }
+
         return view('admin.quotations.create', compact('customers', 'packages', 'companies', 'selectedCustomer'));
     }
 

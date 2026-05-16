@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="max-w-lg">
-        <form method="POST" action="{{ route('admin.users.store') }}" class="space-y-6 glass rounded-2xl p-6 sm:p-8">
+        <form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data" class="space-y-6 glass rounded-2xl p-6 sm:p-8">
             @csrf
 
             <div>
@@ -29,6 +29,19 @@
                 <label for="phone" class="block text-xs font-medium t-muted mb-1.5">Phone</label>
                 <input type="text" name="phone" id="phone" value="{{ old('phone') }}" autocomplete="tel"
                     class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm placeholder:text-[var(--text-faint)] focus:outline-none focus:ring-2 focus:ring-solar-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="designation" class="block text-xs font-medium t-muted mb-1.5">Designation (for ID / visiting cards)</label>
+                <input type="text" name="designation" id="designation" value="{{ old('designation') }}" placeholder="e.g. General Manager"
+                    class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm placeholder:text-[var(--text-faint)] focus:outline-none focus:ring-2 focus:ring-solar-500 focus:border-transparent">
+            </div>
+
+            <div>
+                <label for="avatar" class="block text-xs font-medium t-muted mb-1.5">Photo (ID card — oval crop in PDF)</label>
+                <input type="file" name="avatar" id="avatar" accept="image/jpeg,image/png,image/webp,image/gif"
+                    class="block w-full text-sm t-secondary file:mr-3 file:rounded-lg file:border-0 file:bg-solar-500 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-dark-900">
+                <p class="mt-1 text-[11px] t-faint">Square or portrait photo works best; max 4 MB.</p>
             </div>
 
             <div>

@@ -1,5 +1,8 @@
 @php
-    $isEdit = isset($quotation) && $quotation->exists;
+    if (! isset($quotation)) {
+        $quotation = null;
+    }
+    $isEdit = $quotation && $quotation->exists;
     $companyDefaults = [];
     foreach ($companies as $c) {
         $companyDefaults[$c->id] = [
@@ -43,15 +46,15 @@
         ])->all();
     }
 
-    $companyId = old('company_profile_id', $quotation->company_profile_id ?? ($companies->first()->id ?? null));
-    $gstPercent = (float) old('gst_percent', $quotation->gst_percent ?? 18);
-    $validityDays = (int) old('validity_days', $quotation->validity_days ?? 60);
-    $paymentTerms = old('payment_terms', $quotation->payment_terms ?? '');
-    $deliveryTerms = old('delivery_terms', $quotation->delivery_terms ?? '');
-    $warrantyTerms = old('warranty_terms', $quotation->warranty_terms ?? '');
-    $freight = old('freight', $quotation->freight ?? '');
-    $jurisdiction = old('jurisdiction', $quotation->jurisdiction ?? 'Kanpur');
-    $coverLetter = old('cover_letter', $quotation->cover_letter ?? '');
+    $companyId = old('company_profile_id', $quotation?->company_profile_id ?? ($companies->first()->id ?? null));
+    $gstPercent = (float) old('gst_percent', $quotation?->gst_percent ?? 18);
+    $validityDays = (int) old('validity_days', $quotation?->validity_days ?? 60);
+    $paymentTerms = old('payment_terms', $quotation?->payment_terms ?? '');
+    $deliveryTerms = old('delivery_terms', $quotation?->delivery_terms ?? '');
+    $warrantyTerms = old('warranty_terms', $quotation?->warranty_terms ?? '');
+    $freight = old('freight', $quotation?->freight ?? '');
+    $jurisdiction = old('jurisdiction', $quotation?->jurisdiction ?? 'Kanpur');
+    $coverLetter = old('cover_letter', $quotation?->cover_letter ?? '');
 @endphp
 
 <form
@@ -104,7 +107,7 @@
             <select name="customer_id" id="customer_id" required class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">
                 <option value="">Select customer</option>
                 @foreach($customers as $customer)
-                    <option value="{{ $customer->id }}" @selected(old('customer_id', $quotation->customer_id ?? ($selectedCustomer->id ?? '')) == $customer->id)>
+                    <option value="{{ $customer->id }}" @selected(old('customer_id', $quotation?->customer_id ?? ($selectedCustomer->id ?? '')) == $customer->id)>
                         {{ $customer->name }}@if($customer->city) — {{ $customer->city }}@endif
                     </option>
                 @endforeach
@@ -113,21 +116,21 @@
 
         <div>
             <label for="location" class="block text-xs font-medium t-muted mb-1.5">Location (site / project)</label>
-            <input type="text" name="location" id="location" value="{{ old('location', $quotation->location ?? '') }}" maxlength="255"
+            <input type="text" name="location" id="location" value="{{ old('location', $quotation?->location ?? '') }}" maxlength="255"
                 placeholder="Project site / city"
                 class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">
         </div>
 
         <div>
             <label for="kind_attn" class="block text-xs font-medium t-muted mb-1.5">Kind Attn (optional)</label>
-            <input type="text" name="kind_attn" id="kind_attn" value="{{ old('kind_attn', $quotation->kind_attn ?? '') }}" maxlength="255"
+            <input type="text" name="kind_attn" id="kind_attn" value="{{ old('kind_attn', $quotation?->kind_attn ?? '') }}" maxlength="255"
                 placeholder="Mr. / Ms. ..."
                 class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">
         </div>
 
         <div class="sm:col-span-2">
             <label for="subject" class="block text-xs font-medium t-muted mb-1.5">Subject</label>
-            <input type="text" name="subject" id="subject" value="{{ old('subject', $quotation->subject ?? '') }}" maxlength="500"
+            <input type="text" name="subject" id="subject" value="{{ old('subject', $quotation?->subject ?? '') }}" maxlength="500"
                 placeholder="TECHNO COMMERCIAL OFFER FOR ..."
                 class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">
         </div>
@@ -145,7 +148,7 @@
                 <option value="">— none —</option>
                 @foreach($packages as $package)
                     <option value="{{ $package->id }}" data-price="{{ $package->price }}"
-                        @selected(old('package_id', $quotation->package_id ?? '') == $package->id)>
+                        @selected(old('package_id', $quotation?->package_id ?? '') == $package->id)>
                         {{ $package->name }} — {{ $package->system_size_kw }} kW — ₹{{ number_format($package->price, 2) }}
                     </option>
                 @endforeach
@@ -279,7 +282,7 @@
         <div class="sm:col-span-2">
             <label for="notes" class="block text-xs font-medium t-muted mb-1.5">Additional notes (optional)</label>
             <textarea name="notes" id="notes" rows="2"
-                class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">{{ old('notes', $quotation->notes ?? '') }}</textarea>
+                class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-solar-500">{{ old('notes', $quotation?->notes ?? '') }}</textarea>
         </div>
     </div>
 

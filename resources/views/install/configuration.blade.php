@@ -18,10 +18,11 @@
         </div>
 
         <p class="lead" style="margin-top:1.25rem;">Mail (optional)</p>
+        <p style="font-size:0.875rem;color:#94a3b8;margin:0 0 1rem;">Leave as <strong>log</strong> to record mail in logs only (no SMTP). If you use SMTP, fill host, port, and a valid “From” email — empty optional fields are fine.</p>
         <div class="row two">
             <div>
                 <label for="mail_mailer">Mailer</label>
-                <input id="mail_mailer" name="mail_mailer" type="text" value="{{ old('mail_mailer', 'smtp') }}" placeholder="smtp / log">
+                <input id="mail_mailer" name="mail_mailer" type="text" value="{{ old('mail_mailer', 'log') }}" placeholder="log / smtp">
             </div>
             <div>
                 <label for="mail_host">Host</label>

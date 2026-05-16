@@ -43,6 +43,12 @@
                     </div>
                 @endif
 
+                @if (session('info'))
+                    <div class="mb-5 rounded-lg border border-zinc-600/40 bg-zinc-800/50 px-3 py-2 text-xs text-zinc-300">
+                        {{ session('info') }}
+                    </div>
+                @endif
+
                 <form method="POST" action="{{ url('/login') }}" class="space-y-4">
                     @csrf
 
