@@ -35,6 +35,7 @@ class QuotationController extends Controller
         $customers = Customer::orderBy('name')->get();
         $packages = Package::where('is_active', true)->get();
         $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
+        $catalogItems = \App\Models\CatalogItem::where('is_published', true)->orderBy('name')->get();
         $selectedCustomer = $request->customer_id ? Customer::find($request->customer_id) : null;
 
         if ($companies->isEmpty()) {
@@ -43,7 +44,7 @@ class QuotationController extends Controller
                 ->with('error', 'No company letterheads are set up yet. Run: php artisan db:seed --class=Database\\Seeders\\CompanyProfileSeeder (or full db:seed), then refresh this page.');
         }
 
-        return view('admin.quotations.create', compact('customers', 'packages', 'companies', 'selectedCustomer'));
+        return view('admin.quotations.create', compact('customers', 'packages', 'companies', 'selectedCustomer', 'catalogItems'));
     }
 
     public function store(Request $request)
@@ -104,8 +105,9 @@ class QuotationController extends Controller
         $customers = Customer::orderBy('name')->get();
         $packages = Package::where('is_active', true)->get();
         $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
+        $catalogItems = \App\Models\CatalogItem::where('is_published', true)->orderBy('name')->get();
 
-        return view('admin.quotations.edit', compact('quotation', 'customers', 'packages', 'companies'));
+        return view('admin.quotations.edit', compact('quotation', 'customers', 'packages', 'companies', 'catalogItems'));
     }
 
     public function update(Request $request, Quotation $quotation)

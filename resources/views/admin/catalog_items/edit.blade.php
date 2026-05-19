@@ -35,20 +35,29 @@
                     <input type="text" name="sku" value="{{ old('sku', $item->sku) }}" class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
                 </div>
                 <div>
+                    <label class="block text-xs font-medium t-muted mb-1.5">HSN Code</label>
+                    <input type="text" name="hsn_code" value="{{ old('hsn_code', $item->hsn_code) }}" class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div>
                     <label class="block text-xs font-medium t-muted mb-1.5">Unit</label>
                     <input type="text" name="unit" value="{{ old('unit', $item->unit) }}" required class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
                 </div>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-medium t-muted mb-1.5">List price (₹)</label>
                     <input type="number" step="0.01" min="0" name="list_price" value="{{ old('list_price', $item->list_price) }}" class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
                 </div>
                 <div>
+                    <label class="block text-xs font-medium t-muted mb-1.5">GST %</label>
+                    <input type="number" step="0.01" min="0" name="gst_percent" value="{{ old('gst_percent', $item->gst_percent) }}" class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
                     <label class="block text-xs font-medium t-muted mb-1.5">Stock quantity <span class="text-red-500">*</span></label>
                     <input type="number" min="0" name="stock_quantity" value="{{ old('stock_quantity', $item->stock_quantity) }}" required class="w-full rounded-xl bg-input border border-theme t-primary px-4 py-2.5 text-sm">
                 </div>
-            </div>
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label class="block text-xs font-medium t-muted mb-1.5">Sort position</label>

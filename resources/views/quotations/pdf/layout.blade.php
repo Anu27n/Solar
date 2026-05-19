@@ -9,17 +9,17 @@
         body { font-family: DejaVu Sans, sans-serif; color: #1e293b; font-size: 10.5px; line-height: 1.45; margin: 0; }
 
         .letterhead { border-bottom: 2px solid #0f172a; padding-bottom: 6px; margin-bottom: 10px; }
-        .letterhead .name { font-size: 20px; font-weight: bold; color: #0f172a; letter-spacing: 0.5px; text-align: center; }
-        .letterhead .tagline { font-size: 9.5px; font-style: italic; color: #334155; text-align: center; margin-top: 3px; }
-        .letterhead .addr { font-size: 9.5px; color: #334155; text-align: center; margin-top: 5px; }
-        .letterhead .contacts { font-size: 9.5px; color: #334155; text-align: center; margin-top: 3px; }
+        .letterhead .name { font-size: 26px; font-weight: bold; color: #0f172a; letter-spacing: 0.5px; text-align: center; }
+        .letterhead .tagline { font-size: 11px; font-style: italic; color: #334155; text-align: center; margin-top: 3px; }
+        .letterhead .addr { font-size: 11px; color: #334155; text-align: center; margin-top: 5px; }
+        .letterhead .contacts { font-size: 11px; color: #334155; text-align: center; margin-top: 3px; }
 
-        .meta-bar { margin-top: 8px; width: 100%; border-collapse: collapse; }
-        .meta-bar td { padding: 3px 0; font-size: 10.5px; vertical-align: top; }
+        .meta-bar { margin-top: 12px; width: 100%; border-collapse: collapse; }
+        .meta-bar td { padding: 4px 0; font-size: 12px; vertical-align: top; }
         .meta-bar .right { text-align: right; }
-        .meta-bar .label { color: #64748b; font-weight: bold; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+        .meta-bar .label { color: #64748b; font-weight: bold; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
 
-        .section-title { font-size: 11.5px; font-weight: bold; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; margin: 14px 0 6px 0; border-bottom: 1px solid #cbd5e1; padding-bottom: 3px; }
+        .section-title { font-size: 16px; font-weight: bold; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 8px 0; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 4px; }
 
         .customer-block { background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px 10px; margin-top: 10px; border-radius: 4px; }
         .customer-block .to { font-size: 9px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; font-weight: bold; margin-bottom: 2px; }
