@@ -31,3 +31,4 @@ Thumbs.db
 *.dump
 /scraper.js
 /process_dom.php
+*.zip
