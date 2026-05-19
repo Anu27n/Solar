@@ -67,6 +67,7 @@
         "gstPercent" => $gstPercent,
         "companyId" => $companyId,
         "isEdit" => $isEdit,
+        "catalogItems" => $catalogItems ?? [],
     ]))'
 >
     @csrf
@@ -163,10 +164,21 @@
                 <h3 class="text-sm font-semibold t-primary">Line items</h3>
                 <p class="text-[11px] t-muted mt-0.5">Use one row per equipment / service line</p>
             </div>
-            <button type="button" x-on:click="addItem" class="inline-flex items-center gap-1.5 rounded-xl bg-solar-500 px-3 py-2 text-xs font-semibold text-dark-900 hover:bg-solar-400 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
-                Add row
-            </button>
+            <div class="flex items-center gap-2">
+                <select x-model="selectedCatalogItem" class="rounded-xl bg-input border border-theme t-primary px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-solar-500 max-w-[200px]">
+                    <option value="">-- Add from catalog --</option>
+                    <template x-for="catItem in catalogItems" :key="catItem.id">
+                        <option :value="catItem.id" x-text="`${catItem.name} — ₹${catItem.list_price || 0}`"></option>
+                    </template>
+                </select>
+                <button type="button" x-on:click="addFromCatalog" class="inline-flex items-center gap-1.5 rounded-xl bg-gray-200/10 px-3 py-2 text-xs font-semibold t-primary hover:bg-gray-200/20 transition">
+                    Add
+                </button>
+                <button type="button" x-on:click="addItem" class="inline-flex items-center gap-1.5 rounded-xl bg-solar-500 px-3 py-2 text-xs font-semibold text-dark-900 hover:bg-solar-400 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                    New row
+                </button>
+            </div>
         </div>
 
         <div class="overflow-x-auto">
@@ -318,6 +330,8 @@
     function quotationForm(config) {
         return {
             items: config.items,
+            catalogItems: config.catalogItems || [],
+            selectedCatalogItem: '',
             companyDefaults: config.companyDefaults,
             companyId: config.companyId,
             isEdit: config.isEdit,
@@ -329,6 +343,36 @@
             jurisdiction: @json($jurisdiction),
             coverLetter: @json($coverLetter),
             unitOptions: ['Nos', 'Set', 'Lot', 'Pair', 'Meter', 'Meters', 'Kg', 'Ltr', 'Job', 'Hrs', 'Bag'],
+
+            addFromCatalog() {
+                if (!this.selectedCatalogItem) return;
+                const cat = this.catalogItems.find(c => String(c.id) === String(this.selectedCatalogItem));
+                if (!cat) return;
+                
+                let targetIdx = this.items.length - 1;
+                let isEmpty = targetIdx >= 0 && !this.items[targetIdx].description && !this.items[targetIdx].rate;
+                
+                let newItem = {
+                    id: null,
+                    description: cat.description ? `${cat.name}\n${cat.description}` : cat.name,
+                    hsn_code: cat.hsn_code || '',
+                    quantity: 1,
+                    unit: cat.unit || 'Nos',
+                    rate: cat.list_price || 0
+                };
+                
+                if (isEmpty) {
+                    this.items[targetIdx] = newItem;
+                } else {
+                    this.items.push(newItem);
+                }
+                
+                if (cat.gst_percent) {
+                    this.gstPercent = cat.gst_percent;
+                }
+                
+                this.selectedCatalogItem = '';
+            },
 
             addItem() {
                 this.items.push({ id: null, description: '', hsn_code: '', quantity: 1, unit: 'Nos', rate: 0 });

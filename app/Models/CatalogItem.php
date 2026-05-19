@@ -12,8 +12,10 @@ class CatalogItem extends Model
         'name',
         'description',
         'sku',
+        'hsn_code',
         'unit',
         'list_price',
+        'gst_percent',
         'stock_quantity',
         'is_published',
         'position',
@@ -23,6 +25,7 @@ class CatalogItem extends Model
     {
         return [
             'list_price' => 'decimal:2',
+            'gst_percent' => 'decimal:2',
             'stock_quantity' => 'integer',
             'is_published' => 'boolean',
             'position' => 'integer',
