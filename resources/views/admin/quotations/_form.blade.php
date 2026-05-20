@@ -2,6 +2,8 @@
     if (! isset($quotation)) {
         $quotation = null;
     }
+    $catalogItems = $catalogItems ?? collect();
+    $catalogItemsPayload = $catalogItemsPayload ?? [];
     $isEdit = $quotation && $quotation->exists;
     $companyDefaults = [];
     foreach ($companies as $c) {
@@ -67,7 +69,7 @@
         "gstPercent" => $gstPercent,
         "companyId" => $companyId,
         "isEdit" => $isEdit,
-        "catalogItems" => $catalogItems ?? [],
+        "catalogItems" => $catalogItemsPayload ?? [],
     ]))'
 >
     @csrf
@@ -163,13 +165,22 @@
             <div>
                 <h3 class="text-sm font-semibold t-primary">Line items</h3>
                 <p class="text-[11px] t-muted mt-0.5">Use one row per equipment / service line</p>
+                @if($catalogItems->isEmpty())
+                    <p class="text-[11px] text-amber-600 dark:text-amber-400 mt-1">No catalog items yet — add products under <strong>Catalog</strong> in the sidebar.</p>
+                @endif
             </div>
             <div class="flex items-center gap-2">
-                <select x-model="selectedCatalogItem" class="rounded-xl bg-input border border-theme t-primary px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-solar-500 max-w-[200px]">
+                <select x-model="selectedCatalogItem" class="rounded-xl bg-input border border-theme t-primary px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-solar-500 max-w-[280px]">
                     <option value="">-- Add from catalog --</option>
-                    <template x-for="catItem in catalogItems" :key="catItem.id">
-                        <option :value="catItem.id" x-text="`${catItem.name} — ₹${catItem.list_price || 0}`"></option>
-                    </template>
+                    @foreach($catalogItems ?? [] as $catItem)
+                        <option value="{{ $catItem->id }}">
+                            {{ $catItem->name }}
+                            @if($catItem->company)
+                                ({{ \Illuminate\Support\Str::limit($catItem->company->name, 24) }})
+                            @endif
+                            — ₹{{ number_format((float) ($catItem->list_price ?? 0), 2) }}
+                        </option>
+                    @endforeach
                 </select>
                 <button type="button" x-on:click="addFromCatalog" class="inline-flex items-center gap-1.5 rounded-xl bg-gray-200/10 px-3 py-2 text-xs font-semibold t-primary hover:bg-gray-200/20 transition">
                     Add

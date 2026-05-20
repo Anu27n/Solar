@@ -99,11 +99,6 @@
                         Log in
                     </button>
                 </form>
-
-                <p class="mt-6 text-center text-xs text-zinc-500">
-                    Don’t have an account?
-                    <a href="{{ url('/register') }}" class="font-medium text-[#00DF82] hover:underline">Register</a>
-                </p>
             </div>
         </div>
     </div>

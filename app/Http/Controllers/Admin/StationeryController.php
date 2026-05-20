@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CompanyProfile;
 use App\Models\User;
+use App\Support\DbOrder;
 use App\Support\PdfImageDataUri;
-use Barryvdh\DomPDF\Facade\Pdf;
+use App\Support\StationeryBranding;
+use App\Support\StationeryCardPdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -19,64 +20,56 @@ class StationeryController extends Controller
         $staff = User::query()
             ->whereIn('role', self::STAFF_ROLES)
             ->where('is_active', true)
-            ->orderByRaw("FIELD(role, 'admin', 'employee', 'channel_partner')")
+            ->orderByRaw(DbOrder::case('role', ['admin', 'employee', 'channel_partner']))
             ->orderBy('name')
             ->get();
 
-        $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
-
-        return view('admin.stationery.index', compact('staff', 'companies'));
+        return view('admin.stationery.index', compact('staff'));
     }
 
-    public function idCard(Request $request, User $user)
+    public function idCard(User $user)
     {
         $this->authorizeCardUser($user);
 
-        $validated = $request->validate([
-            'company_profile_id' => ['required', 'exists:company_profiles,id'],
-        ]);
+        [$w, $h] = StationeryCardPdf::idCardPaper();
 
-        $company = CompanyProfile::findOrFail($validated['company_profile_id']);
-
-        $w = 85.6 * 72 / 25.4;
-        $h = 53.98 * 72 / 25.4;
-
-        $pdf = Pdf::loadView('stationery.pdf.id_card', [
-            'user' => $user,
-            'company' => $company,
-            'photoDataUri' => PdfImageDataUri::fromPublicPath($user->avatar_path),
-            'logoDataUri' => PdfImageDataUri::fromPublicPath($company->logo_path),
-        ])->setPaper([0, 0, $w, $h]);
-
-        $filename = 'id-card-'.Str::slug($user->name).'.pdf';
-
-        return $pdf->download($filename);
+        return StationeryCardPdf::download(
+            'stationery.pdf.id_card',
+            $this->cardViewData($user),
+            $w,
+            $h,
+            'id-card-'.Str::slug($user->name).'.pdf',
+        );
     }
 
-    public function visitingCard(Request $request, User $user)
+    public function visitingCard(User $user)
     {
         $this->authorizeCardUser($user);
 
-        $validated = $request->validate([
-            'company_profile_id' => ['required', 'exists:company_profiles,id'],
-        ]);
+        [$w, $h] = StationeryCardPdf::visitingCardPaper();
 
-        $company = CompanyProfile::findOrFail($validated['company_profile_id']);
+        return StationeryCardPdf::download(
+            'stationery.pdf.visiting_card',
+            $this->cardViewData($user),
+            $w,
+            $h,
+            'visiting-card-'.Str::slug($user->name).'.pdf',
+        );
+    }
 
-        // 89 × 51 mm (standard Indian business card) converted to points
-        $w = 89 * 72 / 25.4;   // ≈ 252.28 pt
-        $h = 51 * 72 / 25.4;   // ≈ 144.57 pt
-
-        $pdf = Pdf::loadView('stationery.pdf.visiting_card', [
+    /**
+     * @return array<string, mixed>
+     */
+    private function cardViewData(User $user): array
+    {
+        return [
             'user' => $user,
-            'company' => $company,
+            'companies' => StationeryBranding::companiesForPdf(),
+            'groupTitle' => StationeryBranding::GROUP_TITLE,
+            'office' => StationeryBranding::primaryOffice(),
+            'services' => StationeryBranding::backServices(),
             'photoDataUri' => PdfImageDataUri::fromPublicPath($user->avatar_path),
-            'logoDataUri' => PdfImageDataUri::fromPublicPath($company->logo_path),
-        ])->setPaper([0, 0, $w, $h]);
-
-        $filename = 'visiting-card-'.Str::slug($user->name).'.pdf';
-
-        return $pdf->download($filename);
+        ];
     }
 
     private function authorizeCardUser(User $user): void

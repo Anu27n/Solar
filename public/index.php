@@ -8,14 +8,15 @@ define('LARAVEL_START', microtime(true));
 $installerBase = dirname(__DIR__);
 require_once $installerBase.'/bootstrap/installer_preflight.php';
 
+if (! installer_is_locked()) {
+    installer_ensure_stub_env($installerBase);
+    installer_export_app_key_to_runtime($installerBase);
+    installer_clear_stale_config_cache($installerBase);
+}
+
 if (installer_should_redirect_to_wizard()) {
     header('Location: /install', true, 302);
     exit;
-}
-
-$installPath = installer_request_path();
-if (($installPath === '/install' || str_starts_with($installPath, '/install/')) && ! installer_is_locked()) {
-    installer_ensure_stub_env($installerBase);
 }
 
 // Determine if the application is in maintenance mode...

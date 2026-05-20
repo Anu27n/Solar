@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CatalogItem;
 use App\Models\CompanyProfile;
 use App\Models\Customer;
 use App\Models\Package;
@@ -35,7 +36,7 @@ class QuotationController extends Controller
         $customers = Customer::orderBy('name')->get();
         $packages = Package::where('is_active', true)->get();
         $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
-        $catalogItems = \App\Models\CatalogItem::where('is_published', true)->orderBy('name')->get();
+        [$catalogItems, $catalogItemsPayload] = $this->catalogItemsForQuotationForm();
         $selectedCustomer = $request->customer_id ? Customer::find($request->customer_id) : null;
 
         if ($companies->isEmpty()) {
@@ -44,7 +45,7 @@ class QuotationController extends Controller
                 ->with('error', 'No company letterheads are set up yet. Run: php artisan db:seed --class=Database\\Seeders\\CompanyProfileSeeder (or full db:seed), then refresh this page.');
         }
 
-        return view('admin.quotations.create', compact('customers', 'packages', 'companies', 'selectedCustomer', 'catalogItems'));
+        return view('admin.quotations.create', compact('customers', 'packages', 'companies', 'selectedCustomer', 'catalogItems', 'catalogItemsPayload'));
     }
 
     public function store(Request $request)
@@ -105,9 +106,9 @@ class QuotationController extends Controller
         $customers = Customer::orderBy('name')->get();
         $packages = Package::where('is_active', true)->get();
         $companies = CompanyProfile::where('is_active', true)->orderBy('name')->get();
-        $catalogItems = \App\Models\CatalogItem::where('is_published', true)->orderBy('name')->get();
+        [$catalogItems, $catalogItemsPayload] = $this->catalogItemsForQuotationForm();
 
-        return view('admin.quotations.edit', compact('quotation', 'customers', 'packages', 'companies', 'catalogItems'));
+        return view('admin.quotations.edit', compact('quotation', 'customers', 'packages', 'companies', 'catalogItems', 'catalogItemsPayload'));
     }
 
     public function update(Request $request, Quotation $quotation)
@@ -285,5 +286,29 @@ class QuotationController extends Controller
         } catch (\Throwable $e) {
             report($e);
         }
+    }
+
+    /**
+     * @return array{0: \Illuminate\Database\Eloquent\Collection<int, CatalogItem>, 1: list<array<string, mixed>>}
+     */
+    private function catalogItemsForQuotationForm(): array
+    {
+        $catalogItems = CatalogItem::query()
+            ->with('company:id,name')
+            ->orderBy('name')
+            ->get();
+
+        $catalogItemsPayload = $catalogItems->map(fn (CatalogItem $item) => [
+            'id' => $item->id,
+            'company_profile_id' => $item->company_profile_id,
+            'name' => $item->name,
+            'description' => $item->description ?? '',
+            'hsn_code' => $item->hsn_code ?? '',
+            'unit' => $item->unit ?? 'Nos',
+            'list_price' => (float) ($item->list_price ?? 0),
+            'gst_percent' => $item->gst_percent !== null ? (float) $item->gst_percent : null,
+        ])->values()->all();
+
+        return [$catalogItems, $catalogItemsPayload];
     }
 }
